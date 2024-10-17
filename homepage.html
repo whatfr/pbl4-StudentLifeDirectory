@@ -2,19 +2,276 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    
+    <title>Student Life Directory</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Add your CSS here */
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Baskerville', sans-serif;
+            background-color: #F5F5F5;
+            color: #2A1B3D;
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 40px;
+            left: 50px;
+            width: 330px;
+            height: 40px;
+            background-color: #44318D;
+            padding: 15px;
+            color: white;
+            z-index: 100;
+            border-radius: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Adjust space between menu items */
+        }
+
+        .nav-links li {
+            position: relative; /* For dropdown positioning */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #FF7F50;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            height: 2px;
+            width: 20px;
+            background-color: white;
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+
+        /* Left Column: Video Section */
+        .left-column {
+            margin-left: 20px; /* Space for the navbar */
+            flex: 2;
+            margin-right: 20px;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #44318D;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Right Column: Cards Section */
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #2A1B3D;
+        }
+
+        .cta-button, .signup-button, .login-button, .feedback-button {
+            background-color: #FF7F50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-button, .login-button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .feedback-button {
+            background-color: #FFD700;
+            color: #2A1B3D;
+        }
+
+        /* Review Section */
+        .review {
+            background-color: #F5F5F5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 20px;
+        }
+
+        /* Overlay Styles */
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .overlay-content {
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
     </style>
 </head>
 <body>
-    <!-- Add your content here -->
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li class="hamburger" onclick="openNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </li>
+            <li class="logo">SLD</li> <!-- Logo placed here -->
+            <li>
+                <a href="#" id="discounts-btn">Discounts</a>
+                <ul class="dropdown" id="discounts-dropdown">
+                    <li><a href="#">Food Discounts</a></li>
+                    <li><a href="#">Entertainment Discounts</a></li>
+                    <li><a href="#">Fitness Discounts</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Left Column: Video Section -->
+        <div class="left-column">
+            <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen class="video-frame"></iframe>
+        </div>
+
+        <!-- Right Column: Discounts, Login, Feedback -->
+        <div class="right-column">
+            <!-- Discounts Section -->
+            <div class="card discounts">
+                <img src="sale-banner.jpg" alt="Sale Banner" style="width: 100%; border-radius: 8px;">
+                <h2>Discounts</h2>
+                <p>20% off at XYZ Restaurant!</p>
+                <button class="cta-button">Get Discount</button>
+            </div>
+
+            <!-- Signup/Login Section -->
+            <div class="card login">
+                <h2>Sign Up / Log In</h2>
+                <button class="signup-button">Register</button>
+                <button class="login-button">Log In</button>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="card feedback">
+                <h2>Student Feedback</h2>
+                <div class="review">
+                    <p><strong>Review title</strong></p>
+                    <p>“Loved the 15% off at ABC Store!”</p>
+                    <p>— Reviewer name, Date</p>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <button class="feedback-button">More Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">Discounts</a>
+            <a href="#">Food Discounts</a>
+            <a href="#">Entertainment Discounts</a>
+            <a href="#">Fitness Discounts</a>
+            <a href="#">About</a>
+            <a href="#">Register</a>
+        </div>
+    </div>
 
     <script>
-        // Add your JavaScript here
+        // JavaScript to toggle dropdown visibility
+        document.getElementById('discounts-btn').onclick = function() {
+            var dropdown = document.getElementById('discounts-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        };
+
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
     </script>
 </body>
 </html>
+
