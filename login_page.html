@@ -4,14 +4,226 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Sign Up</title>
     
     <style>
-        /* Add your CSS here */
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Baskerville', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Container to hold form and image, both as separate boxes */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100vw; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+            padding: 20px; /* Padding around the container */
+            gap: 20px; /* Space between the sign-up box and image box */
+        }
+
+        /* Sign-up form box */
+        .signup-box {
+            width: 65%; /* Adjusted to be larger */
+            max-width: 760px; /* Limit width for larger screens */
+            padding: 40px; /* Inner padding */
+            border: 5px solid #ffffff; /* Outer border */
+            /* border-radius: 10px; */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff; /* Move the background color here for clarity */
+        }
+
+        /* Sign-up title with bar and square decoration */
+        .signup-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .signup-title h2 {
+            font-family: 'Baskerville', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Decorative elements next to the sign-up title */
+        .signup-title::before,
+        .signup-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #ccc;
+        }
+
+        .signup-title::before {
+            margin-right: 10px;
+        }
+
+        .signup-title::after {
+            margin-left: 10px;
+        }
+
+        /* Input fields styling */
+        .signup-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Baskerville', sans-serif;
+            color: #333;
+        }
+
+        .signup-form input::placeholder {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Date of birth fields */
+        .dob {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .dob input {
+            width: 33.33%;
+        }
+
+        /* Signup button styling */
+        .signup-form button {
+            width: 100%;
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .signup-form button:hover {
+            background-color: #e06548;
+        }
+
+        /* Login link */
+        .login-link {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        .login-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        /* Social icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 20px;
+        }
+
+        .icon-apple {
+            width: 40px;  /* Apple icon size */
+            height: 30px; /* Apple icon size */
+        }
+
+        .icon-facebook {
+            width: 30px;  /* Facebook icon size */
+            height: 30px; /* Facebook icon size */
+        }
+
+        .icon-google {
+            width: 30px;  /* Google icon size */
+            height: 30px; /* Google icon size */
+        }
+
+        .icon-twitter {
+            width: 30px;  /* Twitter icon size */
+            height: 30px; /* Twitter icon size */
+        }
+
+        /* Right-side box for the image */
+        .image-box {
+            width: 45%; /* Adjusted to be smaller */
+            max-width: 800px; /* Limit width for larger screens */
+            background-color: #f0f0f0;
+            padding: 20px; /* Inner padding */
+            border: 30px solid #ccc; /* Outer border */
+            /* border-radius: 8px; */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: url("https://i.im.ge/2024/07/11/V6yoic.watercolor-light-steel-blue-wallpaper-image.jpeg") no-repeat center;
+            background-size: cover; /* This will ensure the image covers the background */
+            box-sizing: border-box; /* Ensures padding is included in total width and height */
+}
+
     </style>
 </head>
 <body>
-    <!-- Add your content here -->
+    <div class="container">
+        <!-- Left box: Sign-up form -->
+        <div class="signup-box">
+            <form class="signup-form">
+                <div class="signup-title">
+                    <h2>SIGN UP</h2>
+                </div>
+
+                <input type="text" placeholder="ID" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm password" required>
+
+                <div class="dob">
+                    <input type="text" placeholder="yyyy" required>
+                    <input type="text" placeholder="mm" required>
+                    <input type="text" placeholder="dd" required>
+                </div>
+
+                <input type="text" placeholder="University" required>
+                <input type="email" placeholder="Email" required>
+
+                <button type="submit">SIGN UP</button>
+                <p class="login-link">Already have an account? <a href="#">Log In.</a></p>
+
+                <div class="social-icons">
+                    <a href="#"><img src="https://i.im.ge/2024/10/17/ky4tXL.Apple-Logo.png" alt="Apple" class="icon-apple"></a>
+                    <a href="#"><img src="https://i.im.ge/2024/10/17/ky4Zi9.15707770.png" alt="Facebook" class="icon-facebook"></a>
+                    <a href="#"><img src="https://i.im.ge/2024/10/17/kyB6JM.09-google-3-512.webp" alt="Google" class="icon-google"></a>
+                    <a href="#"><img src="https://i.im.ge/2024/10/17/kyBPSY.x-social-media-black-icon.png" alt="Twitter" class="icon-twitter"></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right box: Image -->
+        <div class="image-box"></div>
+    </div>
 
     <script>
         // Add your JavaScript here
