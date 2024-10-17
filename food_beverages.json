@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Goncha",
+        "category": "Food and Drinks",
+        "discount_description": "Up to 15% off for all drinks",
+        "requirements": {
+            "r1": "In person only",
+            "r2": "Student ID required"
+        },
+        "locations": "https://www.google.com/maps/search/goncha/@34.7678917,135.4617493,24459m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Goncha is a popular bubble tea brand from Taiwan, known for its high-quality, customizable drinks featuring fresh brewed tea and various toppings like tapioca pearls and fruit jellies. It emphasizes freshness and personalization, appealing to both traditional tea lovers and a younger audience.",
+        "expiration_date": "None",
+        "image": "https://www.gong-cha.com/@resource/images/main/img-values.jpg",
+        "tags": {
+            "t1": "drinks"
+        }
+    },
+    {
+        "id": 2,
+        "name": "JyuJyu Calbi",
+        "category": "Food",
+        "discount_description": "",
+        "requirements": {
+            "r1": "",
+            "r2": ""
+        },
+        "locations": "",
+        "description": "",
+        "expiration_date": "",
+        "image": "",
+        "tags": {
+            "t1": ""
+        }
+    }
+]
