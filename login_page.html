@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Login</title>
     
     <style>
         /* Global Styles */
@@ -35,7 +35,7 @@
         }
 
         /* Sign-up form box */
-        .signup-box {
+        .login-box {
             width: 65%; /* Adjusted to be larger */
             max-width: 760px; /* Limit width for larger screens */
             padding: 40px; /* Inner padding */
@@ -49,15 +49,17 @@
         }
 
         /* Sign-up title with bar and square decoration */
-        .signup-title {
+        .login-title {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 40px;
             position: relative;
+            top: 0;  /* Start at the top */
+            transform: translateY(-50px); /* Adjust vertically */
         }
 
-        .signup-title h2 {
+        .login-title h2 {
             font-family: 'Baskerville', sans-serif;
             font-size: 24px;
             font-weight: bold;
@@ -65,8 +67,8 @@
         }
 
         /* Decorative elements next to the sign-up title */
-        .signup-title::before,
-        .signup-title::after {
+        .login-title::before,
+        .login-title::after {
             content: '';
             display: block;
             width: 50px;
@@ -74,17 +76,24 @@
             background-color: #ccc;
         }
 
-        .signup-title::before {
+        .login-title::before {
             margin-right: 10px;
         }
 
-        .signup-title::after {
+        .login-title::after {
             margin-left: 10px;
         }
 
+        .login-form {
+            display: flex;
+            flex-direction: column; /* Keep the elements in a vertical column */
+            align-items: center; /* Center all child elements horizontally */
+        }
+
+
         /* Input fields styling */
-        .signup-form input {
-            width: 100%;
+        .login-form input {
+            width: 60%;
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -92,9 +101,13 @@
             font-size: 14px;
             font-family: 'Baskerville', sans-serif;
             color: #333;
+            align-self: center;
+            position: flex;
+            top: 0;  /* Start at the top */
+            transform: translateY(-50px); /* Adjust vertically */
         }
 
-        .signup-form input::placeholder {
+        .login-form input::placeholder {
             font-size: 14px;
             color: #888;
         }
@@ -111,8 +124,8 @@
         }
 
         /* Signup button styling */
-        .signup-form button {
-            width: 100%;
+        .login-form button {
+            width: 60%;
             background-color: #ff7e5f;
             color: #fff;
             border: none;
@@ -121,38 +134,117 @@
             font-size: 16px;
             cursor: pointer;
             margin-top: 20px;
+            top: 0;  /* Start at the top */
+            transform: translateY(-50px); /* Adjust vertically */
         }
 
-        .signup-form button:hover {
+        .login-form button:hover {
             background-color: #e06548;
         }
 
-        /* Login link */
-        .login-link {
-            margin-top: 10px;
+        .forgot-password {
+            text-align: right;
+            font-size: 14px;
+            margin-bottom: 20px;
+            margin-right: 20%;
+            top: 0;  /* Start at the top */
+            transform: translateY(-50px); /* Adjust vertically */
+            position: flex;
+            align-self: flex-end; /* Keep it on the right side */
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        /* signup link */
+        .signup-link {
+            margin-top: 40px;
+            margin-bottom: 40px;
             font-size: 14px;
             color: #555;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Adds spacing between text and button */
+            top: 0;  /* Start at the top */
+            transform: translateY(-40px); /* Adjust vertically */
         }
 
-        .login-link a {
+        .signup-link a {
+            display: inline-block;
+            width: 20px; /* Set fixed width */
+            height: 20px; /* Set fixed height (equal to width for a circle) */
+            background-color: #e06548; /* Set the background color */
+            color: #fff; /* White text color */
             text-decoration: none;
-            color: #007bff;
+            border-radius: 50%; /* Makes the button circular */
+            font-size: 10px; /* Adjust font size */
+            font-weight: bold; /* Bold text */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the arrow inside the circle */
+            transition: background-color 0.3s ease; /* Smooth hover transition */
         }
+
+        .signup-link a:hover {
+            background-color: #0056b3; /* Darker background on hover */
+        }
+
+
+
+        /* Third-party title with bar decoration */
+        .third-party-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            margin-top: 30px;
+            top: 0;  /* Start at the top */
+            transform: translateY(-30px); /* Adjust vertically */
+        }
+
+        .third-party-title div {
+            font-size: 14px;
+            color: #ef7f0e;
+            margin-bottom: 10px;
+        }
+
+        .third-party-title::before,
+        .third-party-title::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 2px;
+            background-color: #ef7f0e;
+        }
+
+        .third-party-title::before {
+            margin-right: 10px;
+        }
+
+        .third-party-title::after {
+            margin-left: 10px;
+        }
+
 
         /* Social icons */
         .social-icons {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            top: 0;  /* Start at the top */
+            transform: translateY(-10px); /* Adjust vertically */
         }
 
         .social-icons a {
-            margin: 0 20px;
+            margin: 0 40px;
         }
 
         .icon-apple {
-            width: 40px;  /* Apple icon size */
+            width: 50px;  /* Apple icon size */
             height: 30px; /* Apple icon size */
         }
 
@@ -180,7 +272,7 @@
             border: 30px solid #ccc; /* Outer border */
             /* border-radius: 8px; */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background: url("https://i.im.ge/2024/07/11/V6yoic.watercolor-light-steel-blue-wallpaper-image.jpeg") no-repeat center;
+            background: url("https://i.im.ge/2024/10/17/kyG6TL.Shrek-Harvey.webp") no-repeat center;
             background-size: cover; /* This will ensure the image covers the background */
             box-sizing: border-box; /* Ensures padding is included in total width and height */
 }
@@ -190,34 +282,37 @@
 <body>
     <div class="container">
         <!-- Left box: Sign-up form -->
-        <div class="signup-box">
-            <form class="signup-form">
-                <div class="signup-title">
-                    <h2>SIGN UP</h2>
+        <div class="login-box">
+            <form class="login-form">
+                <div class="login-title">
+                    <h2>LOG IN</h2>
                 </div>
 
                 <input type="text" placeholder="ID" required>
                 <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirm password" required>
 
-                <div class="dob">
-                    <input type="text" placeholder="yyyy" required>
-                    <input type="text" placeholder="mm" required>
-                    <input type="text" placeholder="dd" required>
+                <div class="forgot-password">
+                    <a href="#">Forgot password</a>
                 </div>
+                
 
-                <input type="text" placeholder="University" required>
-                <input type="email" placeholder="Email" required>
 
-                <button type="submit">SIGN UP</button>
-                <p class="login-link">Already have an account? <a href="#">Log In.</a></p>
+                <button type="submit">LOGIN</button>
 
-                <div class="social-icons">
-                    <a href="#"><img src="https://i.im.ge/2024/10/17/ky4tXL.Apple-Logo.png" alt="Apple" class="icon-apple"></a>
-                    <a href="#"><img src="https://i.im.ge/2024/10/17/ky4Zi9.15707770.png" alt="Facebook" class="icon-facebook"></a>
-                    <a href="#"><img src="https://i.im.ge/2024/10/17/kyB6JM.09-google-3-512.webp" alt="Google" class="icon-google"></a>
-                    <a href="#"><img src="https://i.im.ge/2024/10/17/kyBPSY.x-social-media-black-icon.png" alt="Twitter" class="icon-twitter"></a>
+                <div class="signup-link">
+                    <span>Sign up</span>
+                    <a href="signup_page.html">→</a> <!-- This is the arrow button -->
                 </div>
+                <div class="third-party-title">
+                    <div>Third-party</div>
+                </div>
+                
+                        <div class="social-icons">
+                            <a href="#"><img src="https://i.im.ge/2024/10/17/ky4tXL.Apple-Logo.png" alt="Apple" class="icon-apple"></a>
+                            <a href="#"><img src="https://i.im.ge/2024/10/17/ky4Zi9.15707770.png" alt="Facebook" class="icon-facebook"></a>
+                            <a href="#"><img src="https://i.im.ge/2024/10/17/kyB6JM.09-google-3-512.webp" alt="Google" class="icon-google"></a>
+                            <a href="#"><img src="https://i.im.ge/2024/10/17/kyBPSY.x-social-media-black-icon.png" alt="Twitter" class="icon-twitter"></a>
+                        </div>
             </form>
         </div>
 
