@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Personal Home Page</title>
     
     <style>
 
@@ -303,91 +303,88 @@ body {
 </head>
 <body>
 
-        <!-- Top Navigation Bar -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li class="hamburger" onclick="openNav()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </li>
-            <li class="logo">SLD</li> <!-- Logo placed here -->
-            <li>
-                <a href="#" id="discounts-btn">Discounts</a>
-                <ul class="dropdown" id="discounts-dropdown">
-                    <li><a href="#">Food Discounts</a></li>
-                    <li><a href="#">Entertainment Discounts</a></li>
-                    <li><a href="#">Fitness Discounts</a></li>
-                </ul>
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Register</a></li>
-        </ul>
-    </nav>
+<!-- Top Navigation Bar -->
+<nav class="navbar">
+    <ul class="nav-links">
+        <li class="hamburger" onclick="openNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div></li>
+        <li class="logo">SLD</li> 
+        
+    <!-- Logo placed here -->
+        <li><a href="#" id="discounts-btn">Discounts</a>
+        <ul class="dropdown" id="discounts-dropdown">
+        <li><a href="#">Food Discounts</a></li>
+        <li><a href="#">Entertainment Discounts</a></li>
+        <li><a href="#">Fitness Discounts</a></li></ul></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Register</a></li></ul>
+</nav>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Profile Section -->
-        <section class="profile-section">
-            <h1>PROFILE</h1>
+<!-- Main Content -->
+<div class="container">
 
-            <!-- Profile Container -->
-            <div class="profile-container">
-                <h2>PERSONAL INFORMATION</h2>
-                
-                <div class="profile-picture">
-                    <!-- Placeholder for Profile Picture -->
-                    <div class="avatar-placeholder"></div>
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <h1>PROFILE</h1>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <h2>PERSONAL INFORMATION</h2>
+            <div class="profile-picture">
+
+    <!-- Placeholder for Profile Picture -->
+        <div class="avatar-placeholder"></div>
+            <button class="upload-btn">Upload Photo</button>
+
+</div>
             
-                    <button class="upload-btn">Upload Photo</button>
-                </div>
-            
-                <!-- University/School Information -->
-                <div class="academic-info">
-                    <table>
-                        <tr><td>Name: </td><td><!-- Name here --></td></tr>
-                        <tr><td>University: </td><td><!-- University here --></td></tr>
-                        <tr><td>Major: </td><td><!-- Major here --></td></tr>
-                        <tr><td>Location: </td><td><!-- Location here --></td></tr>
-                    </table>
-                </div>
+<!-- University/School Information -->
+<div class="academic-info">
+    <table>
+        <tr><td>Name: </td><td><!-- Name here --></td></tr>
+        <tr><td>University: </td><td><!-- University here --></td></tr>
+        <tr><td>Major: </td><td><!-- Major here --></td></tr>
+        <tr><td>Location: </td><td><!-- Location here --></td></tr>
+    </table>
+</div>
                 
-                <!-- Bio Section -->
-                <div class="bio-section">
-                    <h4>BIO:</h4>
-                    <textarea class="bio-textarea" rows="4" placeholder="Enter your bio here..."></textarea>
-                    <button class="save-bio-btn">Save Bio</button>
-                </div>
+<!-- Bio Section -->
+<div class="bio-section">
+    <h4>BIO:</h4>
+        <textarea class="bio-textarea" rows="4" placeholder="Enter your bio here..."></textarea>
+        <button class="save-bio-btn">Save Bio</button>
+</div>
 
-            </div> <!-- End of profile-container -->            
+</div></section>
+<!-- End of profile-container -->
 
-        </section>
-
-        <!-- Right Section: Favorites and Saved Lists -->
-        <aside class="right-section">
-            <div class="user-greeting">
-                <span>Hello <!-- Username here -->!</span>
-                <div class="dropdown">
-                    <button class="dropdown-btn">▼</button>
-                    <div class="dropdown-content">
-                        <a href="#">Settings</a>
-                        <a href="#">Logout</a>
-                    </div>
-                </div>
+<!-- Right Section: Favorites and Saved Lists -->
+<aside class="right-section">
+<div class="user-greeting">
+    <span>Hello <!-- Username here -->!</span>
+        <div class="dropdown">
+            <button class="dropdown-btn">▼</button>
+            <div class="dropdown-content">
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
             </div>
+        </div>
+    </div>
 
-            <div class="fav-save-section">
+<!--FAV-SAVE-LIST Section-->
+<div class="fav-save-section">
 
-<!-- FAV LIST -->
-<div class="fav-list">
-    <h4 class="list-title">FAV LISTS</h4>
-    <div class="card">
+    <!-- FAV LIST -->
+    <div class="fav-list">
+        <h4 class="list-title">FAV LISTS</h4>
+        <div class="card">
         <div class="card-image">
 
-            <!-- Empty space for image -->
-
-            <div class="image-placeholder"></div>
-        </div>
+    <!-- Empty space for image -->
+        <div class="image-placeholder"></div>
+    </div>
         <div class="card-info">
             <h3><!--Business name--></h3>
             <p><!--Discount offer--></p>
@@ -396,16 +393,15 @@ body {
     </div>
 </div>
 
-<!-- SAVE LIST -->
-<div class="save-list">
-    <h4 class="list-title">SAVE LISTS</h4>
-    <div class="card">
+    <!-- SAVE LIST -->
+        <div class="save-list">
+        <h4 class="list-title">SAVE LISTS</h4>
+        <div class="card">
         <div class="card-image">
 
-            <!-- Empty space for image -->
-             
-            <div class="image-placeholder"></div>
-        </div>
+    <!-- Empty space for image -->
+        <div class="image-placeholder"></div>
+    </div>
         <div class="card-info">
             <h3><!--Business name--></h3>
             <p><!--Discount offer--></p>
