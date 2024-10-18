@@ -7,12 +7,413 @@
     <title>Title</title>
     
     <style>
-        /* Add your CSS here */
+
+    /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+    width: 330px;
+    height: 40px;
+    background-color: #44318D;
+    padding: 15px;
+    color: white;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adjust space between menu items */
+}
+
+.nav-links li {
+    position: relative; /* For dropdown positioning */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #FF7F50;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/* Profile Section (35% width) */
+.profile-section {
+    width: 35%; /* Adjusted to 40% for a 4:6 ratio */
+    background-color: #e6e5e5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h1 {
+    font-size: 24px;
+    color: #44318D;
+    margin-top: 280px;
+    margin-bottom: 30px;
+}
+
+/* Personal Information Section */
+.profile-container {
+    background-color: #f2f2f2; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+}
+
+.profile-container h2 {
+    font-size: 15px; 
+    color: #000000; 
+    margin-top: 20px; 
+    margin-bottom: 10px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+}
+
+/* Profile Picture */
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Profile Picture Placeholder */
+.avatar-placeholder {
+    width: 250px; 
+    height: 300px; 
+    background-color: #e0e0e0; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px; 
+}
+
+.upload-btn {
+    background-color: #FF7F50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Academic Information Table */
+.academic-info table {
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.academic-info td {
+    padding: 10px; 
+    text-align: left; 
+}
+
+/* Bio Section */
+.bio-section {
+    margin-top: 20px; 
+}
+
+.bio-section h4 {
+    font-size: 15px; 
+    color: #000000; 
+    margin-left: 10px;
+    margin-bottom: 10px; 
+}
+
+.bio-textarea {
+    width: 90%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    margin-bottom: 20px; 
+    margin-left: 10px;
+    resize: vertical;
+}
+
+.save-bio-btn {
+    background-color: #FF7F50; 
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px; 
+}
+
+/* Align the detail information to the right */
+.academic-info td:last-child {
+    text-align: right; 
+}
+
+/* Right Section (50% width) */
+.right-section {
+    width: 65%; 
+    margin-left: 10px;
+    background-color: #e6e5e5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* User Greeting Section */
+.user-greeting {
+    height: 10px; 
+    width: 20%; 
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #44318D; 
+    color: white; 
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%; 
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Title for the lists */
+.list-title {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+/* FAV LIST and SAVE LIST styles */
+.fav-list, .save-list {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Card styling */
+.card {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+/* Image styling */
+.card-image {
+    width: 200px; 
+    height: 200px; 
+    margin-right: 20px; 
+}
+
+.business-logo {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* Card info styling */
+.card-info {
+    flex-grow: 1; 
+    text-align: right;
+}
+
+.card-info h3 {
+    margin: 0; 
+}
+
+.card-info p {
+    margin: 5px 0;
+}
+
+/* Image placeholder styling */
+.image-placeholder {
+    width: 200px;
+    height: 200px; 
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        
     </style>
 </head>
 <body>
-    <!-- Add your content here -->
 
+        <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li class="hamburger" onclick="openNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </li>
+            <li class="logo">SLD</li> <!-- Logo placed here -->
+            <li>
+                <a href="#" id="discounts-btn">Discounts</a>
+                <ul class="dropdown" id="discounts-dropdown">
+                    <li><a href="#">Food Discounts</a></li>
+                    <li><a href="#">Entertainment Discounts</a></li>
+                    <li><a href="#">Fitness Discounts</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <h1>PROFILE</h1>
+
+            <!-- Profile Container -->
+            <div class="profile-container">
+                <h2>PERSONAL INFORMATION</h2>
+                
+                <div class="profile-picture">
+                    <!-- Placeholder for Profile Picture -->
+                    <div class="avatar-placeholder"></div>
+            
+                    <button class="upload-btn">Upload Photo</button>
+                </div>
+            
+                <!-- University/School Information -->
+                <div class="academic-info">
+                    <table>
+                        <tr><td>Name: </td><td><!-- Name here --></td></tr>
+                        <tr><td>University: </td><td><!-- University here --></td></tr>
+                        <tr><td>Major: </td><td><!-- Major here --></td></tr>
+                        <tr><td>Location: </td><td><!-- Location here --></td></tr>
+                    </table>
+                </div>
+                
+                <!-- Bio Section -->
+                <div class="bio-section">
+                    <h4>BIO:</h4>
+                    <textarea class="bio-textarea" rows="4" placeholder="Enter your bio here..."></textarea>
+                    <button class="save-bio-btn">Save Bio</button>
+                </div>
+
+            </div> <!-- End of profile-container -->            
+
+        </section>
+
+        <!-- Right Section: Favorites and Saved Lists -->
+        <aside class="right-section">
+            <div class="user-greeting">
+                <span>Hello <!-- Username here -->!</span>
+                <div class="dropdown">
+                    <button class="dropdown-btn">▼</button>
+                    <div class="dropdown-content">
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fav-save-section">
+
+<!-- FAV LIST -->
+<div class="fav-list">
+    <h4 class="list-title">FAV LISTS</h4>
+    <div class="card">
+        <div class="card-image">
+
+            <!-- Empty space for image -->
+
+            <div class="image-placeholder"></div>
+        </div>
+        <div class="card-info">
+            <h3><!--Business name--></h3>
+            <p><!--Discount offer--></p>
+            <small><!--Expiration date--></small>
+        </div>
+    </div>
+</div>
+
+<!-- SAVE LIST -->
+<div class="save-list">
+    <h4 class="list-title">SAVE LISTS</h4>
+    <div class="card">
+        <div class="card-image">
+
+            <!-- Empty space for image -->
+             
+            <div class="image-placeholder"></div>
+        </div>
+        <div class="card-info">
+            <h3><!--Business name--></h3>
+            <p><!--Discount offer--></p>
+            <small><!--Expiration date--></small>
+        </div>
+    </div>
+</div>
+    
     <script>
         // Add your JavaScript here
     </script>
