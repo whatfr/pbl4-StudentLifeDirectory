@@ -1,22 +1,211 @@
-/* NEED TO ADD COPIES OF THIS PAGE FOR DIFFERENT DETAILED DISCOUNTS PAGE */
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    
+    <title>Discount Details - Pizza Paradise</title>
     <style>
-        /* Add your CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #discount-page {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-header {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        .discount-offer {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #discount-amount {
+            font-size: 28px;
+            color: coral;
+            font-weight: bold;
+        }
+
+        .discount-details, .business-info, .tags, .reviews-section {
+            margin-top: 20px;
+        }
+
+        #expiration-date {
+            color: #FF7F50;
+        }
+
+        .cta button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            color: white;
+            background-color: #44318D;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background-color: #6C5CE7;
+        }
+
+        #expiration-reminder {
+            margin-top: 10px;
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- Add your content here -->
+    <div id="discount-page">
+        <!-- Business Info -->
+        <div class="business-header">
+            <img id="logo" alt="Business Logo">
+            <h1 id="business-name"></h1>
+        </div>
+        
+        <!-- Discount Offer -->
+        <div class="discount-offer">
+            <h2 id="discount-amount"></h2>
+            <p id="short-description"></p>
+        </div>
+        
+        <!-- Discount Details -->
+        <div class="discount-details">
+            <h3>Discount Details</h3>
+            <p id="long-description"></p>
+            <p id="expiration-date"></p>
+        </div>
+
+        <!-- Business Information -->
+        <div class="business-info">
+            <h3>Business Information</h3>
+            <p id="location"></p>
+            <p id="contact-phone"></p>
+            <a id="contact-website" href="#" target="_blank">Visit Website</a>
+            <p id="business-hours"></p>
+            <div id="social-media"></div>
+        </div>
+
+        <!-- Tags & Categories -->
+        <div class="tags">
+            <h3>Categories & Tags</h3>
+            <p id="categories"></p>
+            <p id="tags"></p>
+        </div>
+
+        <!-- Student Reviews Section -->
+        <div class="reviews-section">
+            <h3>Student Reviews</h3>
+            <div id="reviews"></div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <button id="redeem-now">Redeem Now</button>
+        </div>
+
+        <!-- Expiration Reminder -->
+        <div id="expiration-reminder"></div>
+    </div>
 
     <script>
-        // Add your JavaScript here
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mock data - You can replace this part with an actual data fetching mechanism
+            const data = {
+                "businessName": "Pizza Paradise",
+                "logo": "https://via.placeholder.com/80", // Placeholder for logo image
+                "discountAmount": "20% Off",
+                "shortDescription": "Applicable on all lunch menus.",
+                "longDescription": "Enjoy a 20% discount on all lunch menus at Pizza Paradise. Valid for online orders only. Minimum purchase of $10. Student ID required to redeem. Offer expires on October 31, 2024.",
+                "expirationDate": "2024-10-31",
+                "location": "123 College Avenue, Cityville",
+                "contact": {
+                    "phone": "555-1234",
+                    "website": "http://pizzaparadise.com",
+                    "hours": "Mon-Sun 11am - 9pm"
+                },
+                "socialMedia": {
+                    "instagram": "http://instagram.com/pizzaparadise",
+                    "facebook": "http://facebook.com/pizzaparadise"
+                },
+                "tags": ["Food", "Student Favorite", "Limited Time"],
+                "rating": 4.5,
+                "reviews": [
+                    {
+                        "studentName": "Alex J.",
+                        "comment": "Great discount for students! The pizza was amazing.",
+                        "rating": 5
+                    },
+                    {
+                        "studentName": "Sam W.",
+                        "comment": "Good deal, but the online system was a bit slow.",
+                        "rating": 4
+                    }
+                ]
+            };
+
+            // Business Info
+            document.getElementById('business-name').textContent = data.businessName;
+            document.getElementById('logo').src = data.logo;
+
+            // Discount Offer
+            document.getElementById('discount-amount').textContent = data.discountAmount;
+            document.getElementById('short-description').textContent = data.shortDescription;
+
+            // Discount Details
+            document.getElementById('long-description').textContent = data.longDescription;
+            const expirationDate = new Date(data.expirationDate).toLocaleDateString();
+            document.getElementById('expiration-date').textContent = `Expires on: ${expirationDate}`;
+
+            // Business Info
+            document.getElementById('location').textContent = `Location: ${data.location}`;
+            document.getElementById('contact-phone').textContent = `Phone: ${data.contact.phone}`;
+            document.getElementById('contact-website').href = data.contact.website;
+            document.getElementById('contact-website').textContent = data.contact.website;
+            document.getElementById('business-hours').textContent = `Business Hours: ${data.contact.hours}`;
+
+            // Social Media Links
+            const socialMediaDiv = document.getElementById('social-media');
+            socialMediaDiv.innerHTML = `
+                <a href="${data.socialMedia.instagram}" target="_blank">Instagram</a> | 
+                <a href="${data.socialMedia.facebook}" target="_blank">Facebook</a>
+            `;
+
+            // Tags & Categories
+            document.getElementById('categories').textContent = `Category: ${data.tags[0]}`;
+            document.getElementById('tags').textContent = `Tags: ${data.tags.join(', ')}`;
+
+            // Student Reviews
+            const reviewsDiv = document.getElementById('reviews');
+            data.reviews.forEach(review => {
+                reviewsDiv.innerHTML += `<p><strong>${review.studentName}</strong> (${review.rating} stars): ${review.comment}</p>`;
+            });
+
+            // Expiration Reminder
+            const today = new Date();
+            const daysLeft = Math.ceil((new Date(data.expirationDate) - today) / (1000 * 60 * 60 * 24));
+            if (daysLeft <= 3) {
+                document.getElementById('expiration-reminder').textContent = `Hurry! Only ${daysLeft} days left!`;
+            }
+        });
     </script>
 </body>
 </html>
