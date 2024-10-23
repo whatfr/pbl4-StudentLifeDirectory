@@ -6,48 +6,96 @@
     <title>Discount Details - Pizza Paradise</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f3f4f6;
             margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 0;
         }
 
         #discount-page {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: 20px auto;
             background-color: white;
-            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .hero {
+            position: relative;
+            height: 250px;
+            background-image: url('https://via.placeholder.com/900x250/ff7f50/ffffff?text=Premium+Restaurant');
+            background-size: cover;
+            background-position: center;
         }
 
         .business-header {
             display: flex;
+            padding: 20px;
             align-items: center;
+            background-color: white;
         }
 
         #logo {
-            width: 80px;
+            width: 100px;
+            border-radius: 50%;
             margin-right: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .business-header h1 {
+            font-size: 24px;
+            color: #333;
         }
 
         .discount-offer {
             text-align: center;
-            margin: 20px 0;
+            background-color: #FF7F50;
+            padding: 20px;
+            color: white;
         }
 
         #discount-amount {
-            font-size: 28px;
-            color: coral;
+            font-size: 36px;
             font-weight: bold;
+            margin: 0;
+        }
+
+        #short-description {
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 20px;
         }
 
         .discount-details, .business-info, .tags, .reviews-section {
             margin-top: 20px;
         }
 
-        #expiration-date {
-            color: #FF7F50;
+        .discount-details p, .business-info p, .tags p {
+            color: #555;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #FF7F50;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .premium-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .premium-images img {
+            width: 30%;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .cta button {
@@ -59,6 +107,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
         }
 
         .cta button:hover {
@@ -66,64 +115,106 @@
         }
 
         #expiration-reminder {
-            margin-top: 10px;
+            margin-top: 20px;
             color: red;
             font-weight: bold;
             text-align: center;
+        }
+
+        /* Reviews Section */
+        .review {
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 0;
+        }
+
+        .review p {
+            margin: 0;
+        }
+
+        .review strong {
+            color: #333;
+        }
+
+        .review small {
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .premium-images img {
+                width: 100%;
+            }
+
+            .business-header {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <div id="discount-page">
+        <!-- Hero Image -->
+        <div class="hero"></div>
+
         <!-- Business Info -->
         <div class="business-header">
             <img id="logo" alt="Business Logo">
             <h1 id="business-name"></h1>
         </div>
-        
+
         <!-- Discount Offer -->
         <div class="discount-offer">
             <h2 id="discount-amount"></h2>
             <p id="short-description"></p>
         </div>
-        
-        <!-- Discount Details -->
-        <div class="discount-details">
-            <h3>Discount Details</h3>
-            <p id="long-description"></p>
-            <p id="expiration-date"></p>
-        </div>
 
-        <!-- Business Information -->
-        <div class="business-info">
-            <h3>Business Information</h3>
-            <p id="location"></p>
-            <p id="contact-phone"></p>
-            <a id="contact-website" href="#" target="_blank">Visit Website</a>
-            <p id="business-hours"></p>
-            <div id="social-media"></div>
-        </div>
+        <!-- Premium Restaurant Images -->
+        <div class="content">
+            <div class="premium-images">
+                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+1" alt="Restaurant 1">
+                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+2" alt="Restaurant 2">
+                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+3" alt="Restaurant 3">
+            </div>
 
-        <!-- Tags & Categories -->
-        <div class="tags">
-            <h3>Categories & Tags</h3>
-            <p id="categories"></p>
-            <p id="tags"></p>
-        </div>
+            <!-- Discount Details -->
+            <div class="discount-details">
+                <h3>Discount Details</h3>
+                <p id="long-description"></p>
+                <p id="expiration-date"></p>
+            </div>
 
-        <!-- Student Reviews Section -->
-        <div class="reviews-section">
-            <h3>Student Reviews</h3>
-            <div id="reviews"></div>
-        </div>
+            <!-- Business Information -->
+            <div class="business-info">
+                <h3>Business Information</h3>
+                <p id="location"></p>
+                <p id="contact-phone"></p>
+                <a id="contact-website" href="#" target="_blank">Visit Website</a>
+                <p id="business-hours"></p>
+                <div id="social-media"></div>
+            </div>
 
-        <!-- Call to Action -->
-        <div class="cta">
-            <button id="redeem-now">Redeem Now</button>
-        </div>
+            <!-- Tags & Categories -->
+            <div class="tags">
+                <h3>Categories & Tags</h3>
+                <p id="categories"></p>
+                <p id="tags"></p>
+            </div>
 
-        <!-- Expiration Reminder -->
-        <div id="expiration-reminder"></div>
+            <!-- Student Reviews Section -->
+            <div class="reviews-section">
+                <h3>Student Reviews</h3>
+                <div id="reviews"></div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta">
+                <button id="redeem-now">Redeem Now</button>
+            </div>
+
+            <!-- Expiration Reminder -->
+            <div id="expiration-reminder"></div>
+        </div>
     </div>
 
     <script>
@@ -131,7 +222,7 @@
             // Mock data - You can replace this part with an actual data fetching mechanism
             const data = {
                 "businessName": "Pizza Paradise",
-                "logo": "https://via.placeholder.com/80", // Placeholder for logo image
+                "logo": "https://via.placeholder.com/100", // Placeholder for logo image
                 "discountAmount": "20% Off",
                 "shortDescription": "Applicable on all lunch menus.",
                 "longDescription": "Enjoy a 20% discount on all lunch menus at Pizza Paradise. Valid for online orders only. Minimum purchase of $10. Student ID required to redeem. Offer expires on October 31, 2024.",
@@ -196,7 +287,7 @@
             // Student Reviews
             const reviewsDiv = document.getElementById('reviews');
             data.reviews.forEach(review => {
-                reviewsDiv.innerHTML += `<p><strong>${review.studentName}</strong> (${review.rating} stars): ${review.comment}</p>`;
+                reviewsDiv.innerHTML += `<div class="review"><strong>${review.studentName}</strong> (${review.rating} stars): <p>${review.comment}</p></div>`;
             });
 
             // Expiration Reminder
