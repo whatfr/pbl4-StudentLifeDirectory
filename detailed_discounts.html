@@ -1,302 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discount Details - Pizza Paradise</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Page</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        #discount-page {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+    body {
+      font-family: 'Baskerville', sans-serif;
+      background-color: #f4f4f4;
+      
+    }
 
-        .hero {
-            position: relative;
-            height: 250px;
-            background-image: url('https://via.placeholder.com/900x250/ff7f50/ffffff?text=Premium+Restaurant');
-            background-size: cover;
-            background-position: center;
-        }
+    .container {
+      display: grid;
+      grid-template-columns: 3fr 1.5fr; /* Adjusts layout to 3:1 ratio */
+      gap: 20px;
+      padding: 20px;
+    }
 
-        .business-header {
-            display: flex;
-            padding: 20px;
-            align-items: center;
-            background-color: white;
-        }
+    .container2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr; 
+      gap: 10px;
+      padding: 20px;
+      margin-top: -30px; /* Adjusted margin to minimize space */
+    }
 
-        #logo {
-            width: 100px;
-            border-radius: 50%;
-            margin-right: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .details, .map-container, .contact-container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .business-header h1 {
-            font-size: 24px;
-            color: #333;
-        }
+    .details {
+      width: 100%; /* Full width of the grid cell */
+    }
 
-        .discount-offer {
-            text-align: center;
-            background-color: #FF7F50;
-            padding: 20px;
-            color: white;
-        }
+    .map-container {
+      width: 100%; /* Full width of the grid cell */
+      position: relative; /* Set the map container position to relative */
+    }
 
-        #discount-amount {
-            font-size: 36px;
-            font-weight: bold;
-            margin: 0;
-        }
+    .contact-container {
+      width: 100%; /* Full width of the grid cell */
+    }
 
-        #short-description {
-            margin-top: 10px;
-        }
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 100%; /* Full width of the grid cell */
+    }
 
-        .content {
-            padding: 20px;
-        }
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-        .discount-details, .business-info, .tags, .reviews-section {
-            margin-top: 20px;
-        }
+    #map {
+      width: 100%; /* Make the map take full width of its container */
+      height: 300px; /* Fixed height for the map */
+      border-radius: 10px; /* Round the corners of the map */
+    }
 
-        .discount-details p, .business-info p, .tags p {
-            color: #555;
-        }
+    /* Centered Headings with Decorative Elements */
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      position: relative;
+      margin-bottom: 20px;
+      color: #8e44ad;
+    }
 
-        h3 {
-            color: #333;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #FF7F50;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
+    /* Horizontal decorative lines */
+    h2::before, h2::after {
+      content: '';
+      display: inline-block;
+      width: 30px; /* Length of the bars */
+      height: 1px;
+      background-color: #8e44ad;
+      vertical-align: middle; /* Align with text */
+      margin: 0 10px; /* Space between diamond and bar */
+    }
 
-        .premium-images {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* Align vertically in the center */
+      margin-bottom: 10px;
+    }
 
-        .premium-images img {
-            width: 30%;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .label {
+      font-weight: bold;
+    }
 
-        .cta button {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-            color: white;
-            background-color: #44318D;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
+    .value {
+      color: #666;
+      display: flex;
+      align-items: center; /* Center the value with the dotted line */
+    }
 
-        .cta button:hover {
-            background-color: #6C5CE7;
-        }
+    .dotted-line {
+      border-top: 1px dotted #666; /* Dotted line style */
+      margin: 0 5px; /* Space around the dotted line */
+      flex-grow: 1; /* Allow the dotted line to expand */
+      height: 1px; /* Ensure the line has height */
+    }
 
-        #expiration-reminder {
-            margin-top: 20px;
-            color: red;
-            font-weight: bold;
-            text-align: center;
-        }
+    /* New class for contact items */
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* Align vertically in the center */
+      margin-bottom: 10px;
+    }
 
-        /* Reviews Section */
-        .review {
-            border-bottom: 1px solid #eaeaea;
-            padding: 10px 0;
-        }
+    /* Style for the Show Route button container */
+    .show-route-container {
+      position: absolute; /* Absolute positioning */
+      bottom: 10px; /* Positioning from the bottom */
+      right: 10px; /* Positioning from the right */
+      display: flex; /* Flexbox for alignment */
+      align-items: center; /* Center items vertically */
+    }
 
-        .review p {
-            margin: 0;
-        }
+    /* Style for the arrow button */
+    #show-route {
+      background-color: #8e44ad; /* Button color */
+      font-size: 8cap;
+      color: white; /* Text color */
+      border: none; /* Remove border */
+      border-radius: 50%; /* Rounded corners */
+      width: 22px; /* Width of the button */
+      height: 22px; /* Height of the button */
+      display: flex; /* Flexbox for alignment */
+      align-items: center; /* Center contents vertically */
+      justify-content: center; /* Center contents horizontally */
+      cursor: pointer; /* Pointer cursor */
+      transition: background-color 0.3s; /* Transition for hover effect */
+      font-size: 20px; /* Font size for the arrow */
+      margin-right: 10px; /* Space between button and text */
+    }
 
-        .review strong {
-            color: #333;
-        }
+    #show-route:hover {
+      background-color: #0056b3; /* Darker shade on hover */
+    }
 
-        .review small {
-            color: #888;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .premium-images img {
-                width: 100%;
-            }
-
-            .business-header {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <div id="discount-page">
-        <!-- Hero Image -->
-        <div class="hero"></div>
-
-        <!-- Business Info -->
-        <div class="business-header">
-            <img id="logo" alt="Business Logo">
-            <h1 id="business-name"></h1>
-        </div>
-
-        <!-- Discount Offer -->
-        <div class="discount-offer">
-            <h2 id="discount-amount"></h2>
-            <p id="short-description"></p>
-        </div>
-
-        <!-- Premium Restaurant Images -->
-        <div class="content">
-            <div class="premium-images">
-                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+1" alt="Restaurant 1">
-                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+2" alt="Restaurant 2">
-                <img src="https://via.placeholder.com/300x200/000000/ffffff?text=Premium+Restaurant+3" alt="Restaurant 3">
-            </div>
-
-            <!-- Discount Details -->
-            <div class="discount-details">
-                <h3>Discount Details</h3>
-                <p id="long-description"></p>
-                <p id="expiration-date"></p>
-            </div>
-
-            <!-- Business Information -->
-            <div class="business-info">
-                <h3>Business Information</h3>
-                <p id="location"></p>
-                <p id="contact-phone"></p>
-                <a id="contact-website" href="#" target="_blank">Visit Website</a>
-                <p id="business-hours"></p>
-                <div id="social-media"></div>
-            </div>
-
-            <!-- Tags & Categories -->
-            <div class="tags">
-                <h3>Categories & Tags</h3>
-                <p id="categories"></p>
-                <p id="tags"></p>
-            </div>
-
-            <!-- Student Reviews Section -->
-            <div class="reviews-section">
-                <h3>Student Reviews</h3>
-                <div id="reviews"></div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="cta">
-                <button id="redeem-now">Redeem Now</button>
-            </div>
-
-            <!-- Expiration Reminder -->
-            <div id="expiration-reminder"></div>
-        </div>
+  <div class="container">
+    <!-- Details Container -->
+    <div class="details">
+      <h2>Details</h2>
+      <div class="detail-item">
+        <span class="label">Title</span>
+        <span class="value" id="title">
+          Lorem Ipsum
+          <span class="dotted-line"></span> <!-- Dotted line here -->
+        </span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Description</span>
+        <span class="value" id="description">Lorem ipsum dolor sit amet.</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Category</span>
+        <span class="value" id="category">Food</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Expiration Date</span>
+        <span class="value" id="expiration">2024-12-31</span>
+      </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mock data - You can replace this part with an actual data fetching mechanism
-            const data = {
-                "businessName": "Pizza Paradise",
-                "logo": "https://via.placeholder.com/100", // Placeholder for logo image
-                "discountAmount": "20% Off",
-                "shortDescription": "Applicable on all lunch menus.",
-                "longDescription": "Enjoy a 20% discount on all lunch menus at Pizza Paradise. Valid for online orders only. Minimum purchase of $10. Student ID required to redeem. Offer expires on October 31, 2024.",
-                "expirationDate": "2024-10-31",
-                "location": "123 College Avenue, Cityville",
-                "contact": {
-                    "phone": "555-1234",
-                    "website": "http://pizzaparadise.com",
-                    "hours": "Mon-Sun 11am - 9pm"
-                },
-                "socialMedia": {
-                    "instagram": "http://instagram.com/pizzaparadise",
-                    "facebook": "http://facebook.com/pizzaparadise"
-                },
-                "tags": ["Food", "Student Favorite", "Limited Time"],
-                "rating": 4.5,
-                "reviews": [
-                    {
-                        "studentName": "Alex J.",
-                        "comment": "Great discount for students! The pizza was amazing.",
-                        "rating": 5
-                    },
-                    {
-                        "studentName": "Sam W.",
-                        "comment": "Good deal, but the online system was a bit slow.",
-                        "rating": 4
-                    }
-                ]
-            };
+    <!-- Image Gallery Container -->
+    <div class="image-gallery">
+      <img src="image1.jpg" alt="Image 1">
+      <img src="image2.jpg" alt="Image 2">
+      <img src="image3.jpg" alt="Image 3">
+      <img src="image4.jpg" alt="Image 4">
+    </div>
+  </div>
 
-            // Business Info
-            document.getElementById('business-name').textContent = data.businessName;
-            document.getElementById('logo').src = data.logo;
+  <div class="container2">
+    <!-- Map Container -->
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="show-route-container">
+        <span>Show Route </span> <!-- Text next to the arrow -->
+        <button id="show-route">→</button> <!-- Arrow button -->
+      </div>
+    </div>
 
-            // Discount Offer
-            document.getElementById('discount-amount').textContent = data.discountAmount;
-            document.getElementById('short-description').textContent = data.shortDescription;
+    <!-- Contact Information Container -->
+    <div class="contact-container">
+      <h2>Get in Touch</h2>
+      <div class="contact-item">
+        <span class="label">Location</span>
+        <span class="value" id="location">
+          23 Greenfield Avenue, Prague
+          <span class="dotted-line"></span> <!-- Dotted line here -->
+        </span>
+      </div>
+      <div class="contact-item">
+        <span class="label">Phone</span>
+        <span class="value" id="phone">+49 1234 567890</span>
+      </div>
+    </div>
+  </div>
 
-            // Discount Details
-            document.getElementById('long-description').textContent = data.longDescription;
-            const expirationDate = new Date(data.expirationDate).toLocaleDateString();
-            document.getElementById('expiration-date').textContent = `Expires on: ${expirationDate}`;
+  <script>
+    // JavaScript here
+    let map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 34.8110, lng: 135.5588 }, // Prague coordinates
+        zoom: 12
+      });
+    }
 
-            // Business Info
-            document.getElementById('location').textContent = `Location: ${data.location}`;
-            document.getElementById('contact-phone').textContent = `Phone: ${data.contact.phone}`;
-            document.getElementById('contact-website').href = data.contact.website;
-            document.getElementById('contact-website').textContent = data.contact.website;
-            document.getElementById('business-hours').textContent = `Business Hours: ${data.contact.hours}`;
+    document.getElementById('show-route').addEventListener('click', function () {
+      alert("Route functionality to be implemented");
+    });
 
-            // Social Media Links
-            const socialMediaDiv = document.getElementById('social-media');
-            socialMediaDiv.innerHTML = `
-                <a href="${data.socialMedia.instagram}" target="_blank">Instagram</a> | 
-                <a href="${data.socialMedia.facebook}" target="_blank">Facebook</a>
-            `;
+    // Example dynamic update based on user interaction
+    function updateDetails(title, description, category, expiration, location, phone) {
+      document.getElementById('title').textContent = title;
+      document.getElementById('description').textContent = description;
+      document.getElementById('category').textContent = category;
+      document.getElementById('expiration').textContent = expiration;
+      document.getElementById('location').textContent = location;
+      document.getElementById('phone').textContent = phone;
 
-            // Tags & Categories
-            document.getElementById('categories').textContent = `Category: ${data.tags[0]}`;
-            document.getElementById('tags').textContent = `Tags: ${data.tags.join(', ')}`;
-
-            // Student Reviews
-            const reviewsDiv = document.getElementById('reviews');
-            data.reviews.forEach(review => {
-                reviewsDiv.innerHTML += `<div class="review"><strong>${review.studentName}</strong> (${review.rating} stars): <p>${review.comment}</p></div>`;
-            });
-
-            // Expiration Reminder
-            const today = new Date();
-            const daysLeft = Math.ceil((new Date(data.expirationDate) - today) / (1000 * 60 * 60 * 24));
-            if (daysLeft <= 3) {
-                document.getElementById('expiration-reminder').textContent = `Hurry! Only ${daysLeft} days left!`;
-            }
-        });
-    </script>
+      // Update map location
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: location }, function (results, status) {
+        if (status === 'OK') {
+          map.setCenter(results[0].geometry.location);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
