@@ -12,6 +12,7 @@
         "description": "Discount can be purchased both online or at ticket machine",
         "expiration_date": "All year round",
         "image": "https://pbs.twimg.com/profile_images/1829319320532631552/ulObRZcy_400x400.jpg",
+        "location": "https://www.google.com/maps/search/AEON+cinema/@34.8097556,135.502327,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAyMS4xIKXMDSoASAFQAw%3D%3D",
         "tags": {
             "t1": ""
         }
