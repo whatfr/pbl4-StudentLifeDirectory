@@ -1,514 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
-  <style>
- 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
 
-    a {
-    font-family: sans-serif;
-    text-decoration: none;
-    }
-    .hamburger {
-        display: block;
-        height: 80px;
-        margin-left: 0;
-        position: relative;
-        z-index: 10;
-        width: 80px;
-        border: none;
-        background-color: transparent;
-    }
-    .hamburger.-active .hamburger__line {
-        background-color: transparent;
-    }
-    .hamburger.-active .hamburger__line::before {
-        top: 0;
-        transform: rotate(45deg);
-    }
-    .hamburger.-active .hamburger__line::after {
-        top: 0;
-        transform: rotate(-45deg);
-    }
-    .hamburger.-active .hamburger__text::before {
-      content: 'close';
-    }
-    .hamburger__line {
-        display: block;
-        height: 2px;
-        position: absolute;
-        top: 23px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 24px;
-        background-color: #172e59;
-        transition: 0.4s;
-    }
-    .hamburger__line:before,
-    .hamburger__line:after {
-        content: "";
-        display: block;
-        height: 100%;
-        position: absolute;
-        width: 100%;
-        background-color: #172e59;
-        transition: inherit;
-    }
-    .hamburger__line:before {
-        top: -6px;
-    }
-    .hamburger__line:after {
-        top: 6px;
-    }
-    .hamburger__text {
-        position: absolute;
-        bottom: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-    }
-    .hamburger__text::before {
-        
-        text-align: center;
-        color: #172e59;
-        font-size: 10px;
-        font-weight: 900;
-    }
-    .header {
-      width: 300px;
-    }
-    .header__nav-area {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        z-index: 9;
-        height: 100vh;
-        width: 300px;
-        visibility: hidden;
-        padding-top: 60px;
-        background-color: #fff;
-        transition: 0.4s;
-    }
-    .header__nav-area.-active {
-        left: 0;
-      visibility: visible;
-    }
-    .global-navigation {
-        padding-top: 40px;
-        padding-right: 25px;
-        padding-bottom: 120px;
-        padding-left: 25px;
-    }
-    .global-navigation__list > li {
-        padding-bottom: 20px;
-        border-bottom: 2px solid #e7e9ee;
-    }
-    .global-navigation__list > li + li {
-      margin-top: 20px;
-    }
-    .global-navigation__link {
-      display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: #172e59;
-        font-weight: 900;
-        transition: color 0.4s;
-        font-size: 0.875rem;
-    }
-    .global-navigation__link.-accordion {
-        position: relative;
-        background: none;
-        border: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 100%;
-        padding: 0;
-    }
-    .global-navigation__link.-accordion::after {
-        content: '';
-        display: block;
-        height: 12px;
-        position: absolute;
-        top: 50%;
-        right: 5px;
-        width: 2px;
-        background-color: #ed3242;
-        transform: translateY(-50%);
-        transition: transform 0.4s;
-    }
-    .global-navigation__link.-accordion::before {
-        content: '';
-        display: block;
-        height: 2px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 12px;
-        background-color: #ed3242;
-        transform: translateY(-50%);
-        
-    }
-    .global-navigation__link.-active::after {
-      transform: translateY(-50%) rotate(-90deg);
-    }
-    .accordion {
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
-        transition: 0.4s;
-    }
-    .accordion.-active {
-        height: auto;
-        padding-top: 30px;
-        visibility: visible;
-    }
-    .accordion__list li {
-        font-size: 0.75rem;
-    }
-    .accordion__list li + li {
-         margin-top: 21px;
-    }
-    .accordion__link {
-        color: #172e59;
-    }
-    body {
-        margin-top: 0;
-        padding-top: 0;
-    
-    }
-    
-     .title{
-        position: absolute;
-                bottom: 0;
-                left: 0;
-                padding-top: 200%;
-                margin-left: 40px;
-                margin-bottom: 10px;
-                font-size: 100px;
-                color: #333;
-    }
-    
-    .right-side{
-        position: relative !important;
-        top: 0 !important; 
-        margin-top: -70px !important;
-        margin-bottom: 15px;
-        display: flex;
-      
-        justify-content: flex-end;
-    
-    }
-    .right-side_2{
-        position: relative !important;
-        top: 0 !important; 
-        margin-top: 0px!important;
-        margin-bottom: 15px;
-        display: flex;
-      
-        justify-content: flex-end;
-    
-    }
-    .right-side_3{
-        position: relative !important;
-        top: 0 !important; 
-        margin-top: 0px!important;
-        margin-bottom: 15px;
-        display: flex;
-      
-        justify-content: flex-end;
-    
-    }
-    .introduction {
-       
-        
-    
-        background: #ffffff;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        padding-right: 8%;
-        padding-left: 8%;
-        border-radius: 10px;
-        margin-top: 0px;
-        top:0;
-        margin-left: 50px;
-        margin-right: 1%;
-        border: 2px solid #000000;
-    
-    }
-    .pic1{
-       
-    
-        
-        border: 2px solid #000000;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        padding-right: 10%;
-        padding-left: 10%;
-        border-radius: 10px;
-        margin-top: 0px;
-        margin-left: 3px;
-        margin-right: 1%;
-    
-    }
-    
-    .students1 {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-    }
-    
-    .students1 li {
-        padding-top :40px;
-        padding-left: 70px;
-        padding-right: 70px;
-        padding-bottom: 40px;
-        margin-top: 2px;
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-bottom: 0px;
-        border: 1px solid #000000;
-    }
-    
-    .students2 {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-    }
-    
-    .students2 li {
-        padding-top :40px;
-        padding-left: 70px;
-        padding-right: 70px;
-        padding-bottom: 40px;
-        
-        margin-top: 2px;
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #000000;
-    }
-    
-    
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 30px;
+            height: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .menu-icon span {
+            width: 100%;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .about-section {
+            background: linear-gradient(180deg, #ffffff 0%, #888888 100%);
+            padding: 40px;
+            border-radius: 12px;
+            height: 925px;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: 72px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #000;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .right-content {
+            display: grid;
+            gap: 15px;
+            grid-template-rows: auto auto auto;
+        }
+
+        .top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .introduction {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .introduction h2 {
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .introduction p {
+            font-style: italic;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .team-member-highlight {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .team-member p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .goal-section {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .goal-section h2 {
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .goal-section h2::before,
+        .goal-section h2::after {
+            content: '—';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .goal-section h2::before {
+            left: 20%;
+        }
+
+        .goal-section h2::after {
+            right: 20%;
+        }
+
+        .goal-section p {
+            text-align: center;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .footer a::before {
+            content: '•';
+            position: absolute;
+            left: -12px;
+            color: #666;
+        }
     </style>
-  
- 
 </head>
-
-
-<header class="header">
-    <div class="header__inner">
-      <button id="js-hamburger" type="button" class="hamburger" aria-controls="navigation" aria-expanded="false" aria-label="メニューを開く">
-          <span class="hamburger__line"></span>
-          <span class="hamburger__text"></span>
-        </button>
-      <div class="header__nav-area js-nav-area" id="navigation">
-        <nav id="js-global-navigation" class="global-navigation">
-          <ul class="global-navigation__list">
-            <li>
-              <a href="#" class="global-navigation__link">
-                めぬ
-              </a>
-            </li>
-               <li>
-              <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger" aria-expanded = 'false' aria-controls="accordion1">
-                menu
-              </button>
-                 <div id="accordion1" class="accordion js-accordion">
-                   <ul class="accordion__list">
-                     <li>
-                       <a href="#" class="accordion__link">
-                         menu
-                       </a>
-                     </li>
-                      <li>
-                       <a href="#" class="accordion__link">
-                         menu
-                       </a>
-                     </li>
-                      <li>
-                       <a href="#" class="accordion__link">
-                         menu
-                       </a>
-                     </li>
-                   </ul>
-                 </div>
-            </li>
-            <li>
-              <a href="#" class="global-navigation__link">
-                menu
-              </a>
-            </li> 
-          </ul>
-          <div id="js-focus-trap" tabindex="0"></div>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <body>
+<body>
     <div class="container">
-<section class="About">
-  <h1 class="title">About</h1>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-</section>  
-
-<div class="right-side">
-
-<section class="introduction">
-    <h1>introduction</h1>
-
-</section>
-
-<section class="pic1">
-
-
-    <h1>pic1</h1>
-</section>
-    
-
-</section>
-
-
-</div>
-<div class="right-side_2">
-    <ul class="students1">
-        <li>item1</li>
-        <li>item2</li>
-        <li>item3</li>
-        <li>item4</li>
-       
+        <div class="about-section">
+            <h1 class="about-title">About</h1>
+        </div>
         
-    </ul> 
-</div>
-<div class="right-side_2">
-    <ul class="students2">
-        <li>item1</li>
-        <li>item2</li>
-        <li>item3</li>
-        <li>item4</li>
-       
-        
-    </ul> 
-</div>
+        <div class="right-content">
+            <div class="top-section">
+                <div class="introduction">
+                    <h2>Introduction</h2>
+                    <p>"Stay informed about discounts across various stores and nearby locations anytime, anywhere. Get real-time insights into promotional offers without leaving your home, keeping you ahead of every deal."</p>
+                </div>
 
-<div class="right-side_3">
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Htar</h3>
+                    <p>Team manager</p>
+                    <p>Lead the team</p>
+                </div>
+            </div>
 
-  <section class="introduction">
-      <h1>introduction</h1>
-  
-  </section>
-  
-  <section class="pic1">
-  
-  
-      <h1>pic1</h1>
-  </section>
-      
-  
-  </section>
-  
-  
-  </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Bou</h3>
+                    <p>Designer</p>
+                    <p>UI designer Leader</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Austin</h3>
+                    <p>Designer</p>
+                    <p>UI designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Mitsuki</h3>
+                    <p>Programmer</p>
+                    <p>HTML+CSS Programmer Leader</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Manami</h3>
+                    <p>Programmer</p>
+                    <p>HTML+CSS Programmer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Nagae</h3>
+                    <p>Programmer</p>
+                    <p>HTML+CSS Programmer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Areeba</h3>
+                    <p>Programmer</p>
+                    <p>JavaScript Programmer Leader</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Satvik</h3>
+                    <p>Programmer</p>
+                    <p>JavaScript Programmer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/45/45" alt="Team member">
+                    <h3>Rin</h3>
+                    <p>Programmer</p>
+                    <p>JavaScript Programmer</p>
+                </div>
+            </div>
 
+            <div class="goal-section">
+                <h2>Our Goal</h2>
+                <p>We provide the most comprehensive collection of discounts across all products, updated in real-time, including exclusive offers for students. With easy access and complete information at your fingertips, every penny you spend goes further, helping you elevate your quality of life to the next level.</p>
+            </div>
+        </div>
+    </div>
 
-
-  </body>
-
-  
-  
-  
-  
-  
- 
-  <script>
-const backgroundFix = (bool) => {
-  const scrollingElement = () => {
-    const browser = window.navigator.userAgent.toLowerCase();
-    if ("scrollingElement" in document) return document.scrollingElement;
-    return document.documentElement;
-  };
-
-  const scrollY = bool
-    ? scrollingElement().scrollTop
-    : parseInt(document.body.style.top || "0");
-
-  const fixedStyles = {
-    height: "100vh",
-    position: "fixed",
-    top: `${scrollY * -1}px`,
-    left: "0",
-    width: "100vw"
-  };
-
-  Object.keys(fixedStyles).forEach((key) => {
-    document.body.style[key] = bool ? fixedStyles[key] : "";
-  });
-
-  if (!bool) {
-    window.scrollTo(0, scrollY * -1);
-  }
-};
-
-
-const CLASS = "-active";
-let flg = false;
-let accordionFlg = false;
-
-let hamburger = document.getElementById("js-hamburger");
-let focusTrap = document.getElementById("js-focus-trap");
-let menu = document.querySelector(".js-nav-area");
-let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
-let accordion = document.querySelectorAll(".js-sp-accordion");
-
-
-hamburger.addEventListener("click", (e) => { 
-  if (flg) {
-    backgroundFix(false);
-    hamburger.setAttribute("aria-expanded", "false");
-    hamburger.focus();
-    flg = false;
-  } else {
-    backgroundFix(true);
-    hamburger.setAttribute("aria-expanded", "true");
-    flg = true;
-  }
-});
-window.addEventListener("keydown", () => {
-  if (event.key === "Escape") {
-    hamburger.classList.remove(CLASS);
-    menu.classList.remove(CLASS);
-
-    backgroundFix(false);
-    hamburger.focus();
-    hamburger.setAttribute("aria-expanded", "false");
-    flg = false;
-  }
-});
-
-
-accordionTrigger.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    e.currentTarget.classList.toggle(CLASS);
-    e.currentTarget.nextElementSibling.classList.toggle(CLASS);
-    if (accordionFlg) {
-      e.currentTarget.setAttribute("aria-expanded", "false");
-      accordionFlg = false;
-    } else {
-      e.currentTarget.setAttribute("aria-expanded", "true");
-      accordionFlg = true;
-    }
-  });
-
-});
-
-
-focusTrap.addEventListener("focus", (e) => {
-  hamburger.focus();
-});
-
-  </script>
-  </html>
+    <footer class="footer">
+        <span>By Pawel Gola</span>
+        <a href="#">Licensing</a>
+        <a href="#">Styleguide</a>
+    </footer>
+</body>
+</html>
