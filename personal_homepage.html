@@ -16,46 +16,6 @@ body {
     padding: 0;
 }
 
-/* Navigation Bar */
-.navbar {
-    position: fixed;
-    top: 40px;
-    left: 50px;
-    width: 330px;
-    height: 40px;
-    background-color: #44318D;
-    padding: 15px;
-    color: white;
-    z-index: 100;
-    border-radius: 20px;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Adjust space between menu items */
-}
-
-.nav-links li {
-    position: relative; /* For dropdown positioning */
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.nav-links a:hover {
-    background-color: #FF7F50;
-}
-
 /* Main Container */
 .container {
     display: flex;
@@ -75,7 +35,7 @@ body {
 .profile-section h1 {
     font-size: 24px;
     color: #44318D;
-    margin-top: 280px;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -303,25 +263,6 @@ body {
 </head>
 <body>
 
-<!-- Top Navigation Bar -->
-<nav class="navbar">
-    <ul class="nav-links">
-        <li class="hamburger" onclick="openNav()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div></li>
-        <li class="logo">SLD</li> 
-        
-    <!-- Logo placed here -->
-        <li><a href="#" id="discounts-btn">Discounts</a>
-        <ul class="dropdown" id="discounts-dropdown">
-        <li><a href="#">Food Discounts</a></li>
-        <li><a href="#">Entertainment Discounts</a></li>
-        <li><a href="#">Fitness Discounts</a></li></ul></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Register</a></li></ul>
-</nav>
-    
 <!-- Main Content -->
 <div class="container">
 
