@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discount Page</title>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcQMDjEPrA9cCZAHQfPW1n47H4r5Bx4EI&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   <style>
     * {
       margin: 0;
@@ -216,84 +216,15 @@
         <span class="label">Phone</span>
         <span class="value" id="phone">+49 1234 567890</span>
       </div>
+      <div class="contact-item">
+        <span class="label">Link</span>
+        <span class="value" id="phone">https://github.com/whatfr/pbl4-StudentLifeDirectory</span>
+      </div>
     </div>
   </div>
 
   <script>
-    let map;
-let marker;
-let directionsService;
-let directionsRenderer;
-
-function initMap() {
-  // Initialize map centered on Prague
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 50.0755, lng: 14.4378 }, // Coordinates for Prague
-    zoom: 12
-  });
-
-  // Initialize the marker
-  marker = new google.maps.Marker({
-    map: map,
-    position: { lat: 50.0755, lng: 14.4378 }, // Default position
-  });
-
-  // Initialize the Directions services for routing
-  directionsService = new google.maps.DirectionsService();
-  directionsRenderer = new google.maps.DirectionsRenderer();
-  directionsRenderer.setMap(map);
-}
-
-document.getElementById('show-route').addEventListener('click', function () {
-  // Set a fixed start location for the example (e.g., city center)
-  const start = { lat: 50.0755, lng: 14.4378 }; // Replace with user's location if available
-
-  // End location will be the current marker's position
-  const end = marker.getPosition();
-
-  if (end) {
-    directionsService.route(
-      {
-        origin: start,
-        destination: end,
-        travelMode: google.maps.TravelMode.DRIVING, // You can change to WALKING, BICYCLING, etc.
-      },
-      function (response, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsRenderer.setDirections(response);
-        } else {
-          alert('Directions request failed due to ' + status);
-        }
-      }
-    );
-  } else {
-    alert('No destination available for routing.');
-  }
-});
-
-function updateDetails(title, description, category, expiration, location, phone) {
-  // Update the content dynamically
-  document.getElementById('title').textContent = title;
-  document.getElementById('description').textContent = description;
-  document.getElementById('category').textContent = category;
-  document.getElementById('expiration').textContent = expiration;
-  document.getElementById('location').textContent = location;
-  document.getElementById('phone').textContent = phone;
-
-  // Update map location based on new address
-  const geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: location }, function (results, status) {
-    if (status === 'OK') {
-      map.setCenter(results[0].geometry.location);
-
-      // Update the marker's position
-      marker.setPosition(results[0].geometry.location);
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
-
+    // JavaScript here
     let map;
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
