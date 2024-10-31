@@ -16,6 +16,164 @@ body {
     padding: 0;
 }
 
+/* Navigation Bar */
+ /* Logo container styling */
+ .logo-container {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Styling individual letters */
+    .logo-container .logo-s,
+    .logo-container .logo-l,
+    .logo-container .logo-d {
+      display: inline-block;
+      padding: 5px;
+      position: relative;
+    }
+
+    /* Adding unique styles to each letter */
+    .logo-container .logo-s {
+      color: #ffe100; /* Blue color */
+    }
+    .logo-container .logo-l {
+      color: #8e44ad; /* Green color */
+      transform: rotate(-15deg);
+    }
+    .logo-container .logo-d {
+      color: #e74c3c; /* Red color */
+      text-decoration: underline;
+    }
+
+    /* Optional hover effect */
+    .logo-container:hover .logo-s {
+      color: #ffc400;
+    }
+    .logo-container:hover .logo-l {
+      color: #fff;
+      transform: rotate(0deg);
+    }
+    .logo-container:hover .logo-d {
+      color: #c0392b;
+      text-decoration: none;
+    }
+ .navbar {
+            position: fixed;
+            font-size: 17.5px;
+            top: 40px;
+            left: 70px;
+            width: 35.5%;
+            height: 9%;
+            background-color: #ffff;
+            padding: 0px;
+            padding-left: 20px;
+            color: white;
+            z-index: 100;
+            border-radius: 10px;
+            border-color: #8e44ad;
+            border-style: solid;
+            border-width: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 2px 2px 2px #aaaaaa;
+        
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Adjust space between menu items */
+            
+        }
+
+        .nav-links li {
+            position: relative; /* For dropdown positioning */
+           
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            
+            
+        }
+
+        .nav-links a:hover {
+            background-color: #8e44ad;
+            color: #fff;
+        }
+        .nav-title{
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff; /* White text for contrast against dark background */
+    letter-spacing: 1px; /* Adds some spacing between letters */
+    font-family: 'Poppins', sans-serif; /* Clean, modern font */
+    text-transform: uppercase; /* Converts title to uppercase */
+    text-align: center;
+    margin: 0; /* Ensures the title is centered without extra spacing */
+        }
+
+        .navbar-title:hover {
+    color: #FFD700; /* Gold color on hover */
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #44318D;
+            border-radius: 8px;
+            top: 40px;
+            left: 0;
+            min-width: 160px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            z-index: 200;
+        }
+
+        .dropdown li a {
+            padding: 10px 20px;
+            display: block;
+            color: white;
+        }
+
+        .dropdown li a:hover {
+            background-color: #8e44ad;
+        }
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+.hamburger:hover .bar {
+    background-color: #8e44ad;
+}
+
 /* Main Container */
 .container {
     display: flex;
@@ -25,7 +183,7 @@ body {
 
 /* Profile Section (35% width) */
 .profile-section {
-    width: 35%; /* Adjusted to 40% for a 4:6 ratio */
+    width: 36%; /* Adjusted to 40% for a 4:6 ratio */
     background-color: #e6e5e5;
     padding: 20px;
     border-radius: 8px;
@@ -34,8 +192,8 @@ body {
 
 .profile-section h1 {
     font-size: 24px;
-    color: #44318D;
-    margin-top: 20px;
+    color: #8e44ad;
+    margin-top: 130px;
     margin-bottom: 30px;
 }
 
@@ -136,7 +294,7 @@ body {
 
 /* Right Section (50% width) */
 .right-section {
-    width: 65%; 
+    width: 55%; 
     margin-left: 10px;
     background-color: #e6e5e5;
     padding: 20px;
@@ -152,26 +310,26 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    background-color: #44318D; 
+    background-color: #8e44ad; 
     color: white; 
     padding: 10px;
     border-radius: 5px; 
 }
 
 /* Dropdown Styles */
-.dropdown {
+.dropdown1 {
     position: relative;
     display: inline-block;
 }
 
-.dropdown-btn {
+.dropdown-btn1 {
     background: none;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-.dropdown-content {
+.dropdown-content1 {
     display: none; 
     position: absolute;
     background-color: white;
@@ -183,21 +341,22 @@ body {
     top: 100%; 
 }
 
-.dropdown-content a {
+.dropdown-content1 a {
     color: black;
     padding: 10px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content1 a:hover {
     background-color: #f1f1f1;
 }
 
 /* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
+.dropdown1:hover .dropdown-content1 {
     display: block;
 }
+
 
 /* Title for the lists */
 .list-title {
@@ -263,8 +422,37 @@ body {
 </head>
 <body>
 
+ 
+    
 <!-- Main Content -->
 <div class="container">
+
+<!-- Top Navigation Bar -->
+<nav class="navbar">
+    <ul class="nav-links">
+        <li class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </li>
+        <li><a href="#" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>
+        
+        <!-- Links visible after login -->
+        <li class="navAfterLogin" style="display: none;"><a href="#">Profile</a></li>
+        <li class="navAfterLogin" style="display: none;"><a href="#">Logout</a></li>
+        
+        <li>
+            <a href="#" id="discounts-btn">Discounts</a>
+            <ul class="dropdown" id="discounts-dropdown">
+                <li><a href="#">Food Discounts</a></li>
+                <li><a href="#">Entertainment Discounts</a></li>
+            </ul>
+        </li>
+        <li><a href="#">About</a></li>
+         <!-- Links visible before login -->
+        <li class="navBeforeLogin"><a href="#">Get Started</a></li>
+    </ul>
+</nav>
 
     <!-- Profile Section -->
     <section class="profile-section">
@@ -303,16 +491,16 @@ body {
 
 <!-- Right Section: Favorites and Saved Lists -->
 <aside class="right-section">
-<div class="user-greeting">
-    <span>Hello <!-- Username here -->!</span>
-        <div class="dropdown">
-            <button class="dropdown-btn">▼</button>
-            <div class="dropdown-content">
+    <div class="user-greeting">
+        <span>Hello <!-- Username here -->!</span>
+        <div class="dropdown1">
+            <button class="dropdown-btn1">▼</button>
+            <div class="dropdown-content1">
                 <a href="#">Settings</a>
                 <a href="#">Logout</a>
             </div>
         </div>
-    </div>
+    </div>    
 
 <!--FAV-SAVE-LIST Section-->
 <div class="fav-save-section">
@@ -352,7 +540,9 @@ body {
 </div>
     
     <script>
-        // Add your JavaScript here
+
+
+
     </script>
 </body>
 </html>
