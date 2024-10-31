@@ -227,7 +227,35 @@
     </div>
 
     <script>
-        // Add your JavaScript here
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            const id = document.getElementById("id").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const dobYear = document.getElementById("dobYear").value;
+            const dobMonth = document.getElementById("dobMonth").value;
+            const dobDay = document.getElementById("dobDay").value;
+            const university = document.getElementById("university").value;
+            const email = document.getElementById("email").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            if (!dobYear.match(/^\d{4}$/) || !dobMonth.match(/^\d{1,2}$/) || !dobDay.match(/^\d{1,2}$/)) {
+                alert("Please enter a valid date of birth.");
+                return;
+            }
+
+            if (dobMonth < 1 || dobMonth > 12 || dobDay < 1 || dobDay > 31) {
+                alert("Please enter a valid month or day.");
+                return;
+            }
+
+            alert(`Registration successful for ${id} at ${university}!`);
+        });
     </script>
 </body>
 </html>
