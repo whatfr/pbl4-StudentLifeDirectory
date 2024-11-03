@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "Goncha",
+        "category": "Food and Drinks",
+        "discount_description": "Up to 15% off for all drinks",
+        "requirements": {
+            "r1": "In person only",
+            "r2": "Student ID required"
+        },
+        "locations": "https://www.google.com/maps/search/goncha/@34.7678917,135.4617493,24459m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Goncha is a popular bubble tea brand from Taiwan, known for its high-quality, customizable drinks featuring fresh brewed tea and various toppings like tapioca pearls and fruit jellies. It emphasizes freshness and personalization, appealing to both traditional tea lovers and a younger audience.",
+        "expiration_date": "None",
+        "image": "https://www.gong-cha.com/@resource/images/main/img-values.jpg",
+        "image2": "https://assets.st-note.com/production/uploads/images/58422782/picture_pc_8b72e40ea1c351818dd3a80e9175fdbe.jpeg?width=1200",
+        "image3": "https://pbs.twimg.com/media/Egf95T6U4AM1NSY.jpg",
+        "image4": "https://gongchamania.com/wp-content/uploads/2022/10/table-image14.png",
+        "tags": {
+            "t1": "Drinks"
+        }
+    },
+    {
+        "id": 2,
+        "name": "JyuJyu Calbi",
+        "category": "Food",
+        "discount_description": "2500Yen (tax included), Weekday limited student limited all-you-can-eat yakiniku 100 minutes (order stop 80 minutes) + various bars included 2,500 yen including tax",
+        "requirements": {
+            "r1": "In person only",
+            "r2": "※Please present your student ID card. ※Price (course, single item), product content or product composition varies depending on the store. ※Some stores do not implement it. ※It cannot be used in conjunction with other tickets and other discount services."
+        },
+        "locations": "https://www.google.com/maps/search/じゅうじゅうカルビ+（店舗ごと）/@34.8033693,135.5184456,12.34z?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Juju Ribs, a specialty that bears the name of our shop. Please enjoy the popular Rib BIG3! We would like to thoroughly improve both quality and service so that we can make our customers' daily lives special.",
+        "expiration_date": "No deadline",
+        "image": "https://www.tomato-a.co.jp/jyujyukarubi/assets/images/top/concept_photo03.png",
+        "image2": "https://pbs.twimg.com/media/DdSuvMDV0AEE7eO.jpg",
+        "image3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxf1vJRws2zlShV58QYpcM676dimRdv-b7nQ&s",
+        "image4": "https://manetatsu.com/imgs/zoom1/65715.jpg",
+        "tags": {
+            "t1": "Foods"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Korakuen",
+        "category": "Food",
+        "discount_description": "Student discount set, Each set is an eat-in limited campaign. ※Order an all-you-can-eat set within the range you can eat. You can order up to 5 desserts.",
+        "requirements": {
+            "r1": "In person only, Takeout, drive-through, and delivery are not eligible.",
+            "r2": "※Please present your student ID card. ※Some menus vary depending on the store. ※Some stores do not sell it. ※Please check the details at the store."
+        },
+        "locations": "https://www.google.com/maps/search/幸楽苑+（店舗ごと）/@34.8136584,135.4268363,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Korakuen is a popular chain of ramen restaurants in Japan known for serving affordable and delicious ramen dishes. The restaurant chain offers a variety of ramen types, including soy sauce (shoyu), miso, and tonkotsu (pork bone broth) ramen.",
+        "expiration_date": "No deadline, limited to weekdays.",
+        "image": "https://www.kourakuen.co.jp/images/brand/sliders/HP_月見らーめん終了間近.jpg",
+        "image2": "https://prtimes.jp/i/29714/106/resize/d29714-106-517182-2.jpg",
+        "image3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCIsQBggL6nXOzpoRMfGAF6uPBp-ckKN4Zsw&s",
+        "image4": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYyVLJPSjKDZAHG6QxXgOgIgQcSPKQ3Ew64w&s",
+        "tags": {
+            "t1": "Foods"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Tully's Coffee Osaka",
+        "category": "Drinks",
+        "discount_description": "Student exclusive: Enjoy 15% off on any hot or cold drink when you present your student ID. Valid on weekdays only.",
+        "requirements": {
+            "r1": "Offer valid for in-store purchases only, not applicable for mobile orders.",
+            "r2": "Present your student ID at the time of purchase. This offer cannot be combined with other discounts or promotions."
+        },
+        "locations": "https://www.google.com/maps/search/Tully's+Coffee+Osaka",
+        "description": "Tully's Coffee is a popular coffee shop chain known for offering a variety of premium coffee, espresso drinks, teas, and seasonal beverages, served in a cozy and student-friendly environment.",
+        "expiration_date": "No expiration date, available only on weekdays.",
+        "image": "https://www.nishimura-ns.co.jp/wp/wp-content/themes/nishimura/common/tullys/pic-tullys01s.jpg",
+        "image2": "https://www.tullys.co.jp/menu/images/menu_top_sp_181002.jpg",
+        "image3": "https://itabashi.goguynet.jp/wp-content/uploads/sites/110/2021/01/34A7EB8A-CE43-4FCB-A462-1FF05BAA27EB.jpeg",
+        "image4": "https://stat.ameba.jp/user_images/20200724/15/yuzumit/8e/a2/j/o0400030014793553619.jpg",
+        "tags": {
+            "t1": "Drinks"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Shabu-shabu Tajimaya",
+        "category": "Food",
+        "discount_description": "2750Yen (tax included), [Student discount course] All-you-can-eat beef shabu-shabu or sukiyaki with drink bar (90 minutes) <8 items in total> This course is limited to student groups only.",
+        "requirements": {
+            "r1": "Offer valid for in-store purchases only. Present your student ID at the time of purchase.",
+            "r2": "※The time limit is 90 minutes. (The last order is 15 minutes before the time.) ※A separate fee may be charged for noticeable leftovers. ※Please note that it is not possible to change to a different type of hot pot during the meal."
+        },
+        "locations": "https://www.google.com/maps/place/Shabu-Shabu+Tajimaya/@34.982789,135.7518471,17z/data=!3m1!4b1!4m6!3m5!1s0x600108abe6f88ae1:0x48dd699f83b1183a!8m2!3d34.982789!4d135.754422!16s%2Fg%2F11b7qqsdzp?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Shabu-shabu Tajimaya is a popular chain of Japanese hotpot restaurants that offers a wide range of high-quality meats and vegetables for shabu-shabu, along with a variety of dipping sauces and side dishes.",
+        "expiration_date": "No deadline",
+        "image": "https://manzo-kyoto.com/shop/tajima/img/room05.jpg",
+        "image2": "https://media-cdn.tripadvisor.com/media/photo-s/13/d3/a9/13/caption.jpg",
+        "image3": "https://rimage.gnst.jp/rest/img/6ewbgs4b0000/t_0n64.jpg?t=1676950102",
+        "image4": "https://imgfp.hotp.jp/IMGH/64/80/P040436480/P040436480_238.jpg",
+        "tags": {
+            "t1": "Foods"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Dondon Udon",
+        "category": "Food",
+        "discount_description": "350Yen, Student discount udon. This menu is for elementary school, junior high school students, high school students, junior college students, vocational school students, and college students.",
+        "requirements": {
+            "r1": "You will need to present your student handbook and student ID card.",
+            "r2": "Please check the details of the student discount information when you visit the store."
+        },
+        "locations": "https://www.google.com/maps/place/うどん処+雲母/@34.7988265,135.5743127,17z/data=!3m1!4b1!4m6!3m5!1s0x6000e2f1fef300dd:0x1340b3cc226aa1ca!8m2!3d34.7988265!4d135.5768876!16s%2Fg%2F1tzvwfpg?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D",
+        "description": "Dondon Udon is a beloved chain of udon noodle restaurants in Japan, offering a variety of freshly made udon dishes, including tempura udon, kitsune udon, and zaru udon, known for their chewy noodles and flavorful broths.",
+        "expiration_date": "No deadline",
+        "image": "https://img21.shop-pro.jp/PA01464/038/etc/top_h.jpg?cmsp_timestamp=20210607094623",
+        "image2": "https://kotobuki1886.air-nifty.com/photos/uncategorized/cimg0167.jpg",
+        "image3": "https://www.s-dondon.co.jp/img/menu_student/section1_1.jpg",
+        "image4": "https://linosy.com/wp-content/uploads/2021/04/2.jpg",
+        "tags": {
+            "t1": "Foods"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Café de Crie",
+        "category": "Drink",
+        "discount_description": "Student beverage discount: Enjoy 15% off any coffee or beverage when you present your student ID at the counter. Valid for in-store purchases only.",
+        "requirements": {
+            "r1": "Available for in-person orders only; not applicable for online or mobile orders.",
+            "r2": "Please present a valid student ID to claim the discount. This offer cannot be combined with other discounts or promotions."
+        },
+        "locations": "https://www.google.com/maps/search/Café+de+Crie+Osaka",
+        "description": "Café de Crie is a popular coffee shop chain offering a wide variety of premium coffee, teas, and light meals, making it an ideal spot for students to study or unwind.",
+        "expiration_date": "No expiration date, available on weekdays.",
+        "image": "https://c-united.co.jp/crie-maison/img/top/info04.jpg",
+        "image2": "https://sugutoku.tasdesign.jp/shop_info/cafe-de-crie/images/cafe2.jpg",
+        "image3": "https://example.com/image3.jpg",
+        "image4": "https://example.com/image4.jpg",
+        "tags": {
+            "t1": "Drink"
+        }
+    }
+]
