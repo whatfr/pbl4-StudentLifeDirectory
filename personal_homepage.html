@@ -7,460 +7,530 @@
     <title>Personal Home Page</title>
     
     <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
 
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
+        /* Navigation Bar */
+       .navbar {
+           position: fixed;
+           top: 40px;
+           left: 20px;
+           width: 32%;
+           background-color: #ffff;
+           padding: 0px;
+           padding-left: 20px;
+           color: white;
+           z-index: 100;
+           border-radius: 10px;
+           border-color: #8e44ad;
+           border-style: solid;
+           border-width: 2px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           box-shadow: 2px 2px 2px #aaaaaa;
+      
+       }
 
-/* Navigation Bar */
-/* Logo container styling */
- .logo-container {
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 20px;
-      color: #333;
-    }
 
-/* Styling individual letters */
-.logo-container .logo-s,
-.logo-container .logo-l,
-.logo-container .logo-d {
-      display: inline-block;
-      padding: 5px;
-      position: relative;
-    }
+       .nav-links {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           display: flex;
+           align-items: center;
+           gap: 15px; /* Adjust space between menu items */
+          
+       }
 
-/* Adding unique styles to each letter */
-.logo-container .logo-s {
-    color: #ffe100; /* Blue color */
-}
 
-.logo-container .logo-l {
-    color: #8e44ad; /* Green color */
-    transform: rotate(-15deg);
-}
+       .nav-links li {
+           position: relative; /* For dropdown positioning */
+         
+       }
 
-.logo-container .logo-d {
-    color: #e74c3c; /* Red color */
-    text-decoration: underline;
-}
 
-/* Optional hover effect */
-.logo-container:hover .logo-s {
-    color: #ffc400;
-}
+       .nav-links a {
+           text-decoration: none;
+           color: #000;
+          
+           display: block;
+           padding: 10px;
+           border-radius: 5px;
+           transition: background 0.3s;
+          
+          
+       }
 
-.logo-container:hover .logo-l {
-    color: #fff;
-    transform: rotate(0deg);
-}
 
-.logo-container:hover .logo-d {
-    color: #c0392b;
-    text-decoration: none;
-}
+       .nav-links a:hover {
+           background-color: #8e44ad;
+           color: #fff;
+       }
+       .nav-title{
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* White text for contrast against dark background */
+            letter-spacing: 1px; /* Adds some spacing between letters */
+            font-family: 'Poppins', sans-serif; /* Clean, modern font */
+            text-transform: uppercase; /* Converts title to uppercase */
+            text-align: center;
+            margin: 0; /* Ensures the title is centered without extra spacing */
+        }
 
- .navbar {
-    position: fixed;
-    font-size: 17.5px;
-    top: 40px;
-    left: 70px;
-    width: 35.5%;
-    height: 9%;
-    background-color: #ffff;
-    padding: 0px;
-    padding-left: 20px;
-    color: white;
-    z-index: 100;
-    border-radius: 10px;
-    border-color: #8e44ad;
-    border-style: solid;
-    border-width: 2px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 2px 2px 2px #aaaaaa;
-}
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+       .navbar-title:hover {
+            color: #FFD700; /* Gold color on hover */
+            transition: color 0.3s ease-in-out; /* Smooth color transition */
+        }
 
-.nav-links li {
-    position: relative;
-}
 
-.nav-links a {
-    text-decoration: none;
-    color: #000;
+
+
+       /* Dropdown Menu */
+       .dropdown {
+           display: none;
+           position: absolute;
+           background-color: #44318D;
+           border-radius: 8px;
+           top: 40px;
+           left: 0;
+           min-width: 160px;
+           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+           z-index: 200;
+       }
+
+
+       .dropdown li a {
+           padding: 10px 20px;
+           display: block;
+           color: white;
+       }
+
+
+       .dropdown li a:hover {
+           background-color: #8e44ad;
+       }
+
+
+       /* Hamburger Menu */
+       .hamburger {
+           display: flex;
+           flex-direction: column;
+           cursor: pointer;
+       }
+
+
+       .bar {
+           height: 2px;
+           width: 20px;
+           background-color: #000;
+           margin: 2px 0;
+           transition: 0.4s;
+       }
+
+
+       .hamburger:hover .bar {
+           background-color: #8e44ad;
+       }
+
+
+/* Overlay Styles */
+        .overlay {
+           height: 100%;
+           width: 0;
+           position: fixed;
+           z-index: 1;
+           top: 0;
+           left: 0;
+           background-color: rgba(0,0,0, 0.9);
+           overflow-x: hidden;
+           transition: 0.5s;
+           padding-top: 60px;
+       }
+
+
+       .overlay-content {
+           position: relative;
+           text-align: center;
+           margin-top: 200px;
+       }
+
+
+       .overlay a {
+           padding: 8px;
+           text-decoration: none;
+           font-size: 36px;
+           color: #818181;
+           display: block;
+           transition: 0.3s;
+       }
+
+
+       .overlay a:hover {
+           color: #f1f1f1;
+       }
+
+
+       .overlay .closebtn {
+           position: absolute;
+           top: 20px;
+           right: 45px;
+           font-size: 60px;
+       }
+
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            margin-top: 8%;
+        }
+
+        /* Profile Section (35% width) */
+        .profile-section {
+            width: 35%; /* Adjusted to 40% for a 4:6 ratio */
+            background-color: #e6e5e5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h1 {
+            font-size: 24px;
+            color: #44318D;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Personal Information Section */
+        .profile-container {
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
             
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 15rem;
+            width: 100%;
+            border-radius: 24px 24px 0 0;
+            background-color: #8e44ad;
+}
+
+        
+  
+
+        .profile-container h2 {
+            font-size: 15px; 
+            color: #000000; 
+            margin-top: 20px; 
+            margin-bottom: 10px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            text-align: center; 
+        }
+
+        /* Profile Picture */
+        .profile-picture {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 10%;
+        }
+        .profile-frame{
+            border-radius: 50%;
+            background-color: #8e44ad;
+            height:100%;
+            margin-bottom: 2rem;
+            padding: 1%;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Profile Picture Placeholder */
+        .avatar-placeholder {
+            border: 3px solid #fff;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.1rem;
+            height: 100%;
+            width: 100%;
+        }
+
+        .upload-btn {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Academic Information Table */
+        .academic-info table {
+            width: 100%; 
+           
             
-}
+        }
+        .academic-info th{
+           margin: auto;
+            font-size: 40px;
 
-.nav-links a:hover {
-    background-color: #8e44ad;
-    color: #fff;
-}
+        }
 
-.nav-title{
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffffff; 
-    letter-spacing: 1px; 
-    font-family: 'Poppins', sans-serif; 
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0; 
-}
-
-.navbar-title:hover {
-    color: #FFD700; 
-    transition: color 0.3s ease-in-out;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    background-color: #44318D;
-    border-radius: 8px;
-    top: 40px;
-    left: 0;
-    min-width: 160px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    z-index: 200;
-}
-
-.dropdown li a {
-    padding: 10px 20px;
-    display: block;
-    color: white;
-}
-
-.dropdown li a:hover {
-    background-color: #8e44ad;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    height: 2px;
-    width: 20px;
-    background-color: #000;
-    margin: 2px 0;
-    transition: 0.4s;
-}
-
-.hamburger:hover .bar {
-    background-color: #8e44ad;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
+        .academic-info td {
+            padding: 10px; 
+            text-align: left; 
+        }
+        .academic-info input[type=text]{
         width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+        
+
+       
+
+        .save-btn {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* Align the detail information to the right */
+        .academic-info td:last-child {
+            text-align: right; 
+        }
+
+        /* Right Section (50% width) */
+        .right-section {
+            width: 65%; 
+            margin-left: 10px;
+            background-color: #e6e5e5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* User Greeting Section */
+        .user-greeting {
+            height: 10px; 
+            width: 20%; 
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: #8e44ad; 
+            color: white; 
+            padding: 10px;
+            border-radius: 5px; 
+        }
+
+        /* Dropdown Styles */
+        .dropdown-profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none; 
+            position: absolute;
+            background-color: white;
+            min-width: 100px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%; 
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown-profile:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Title for the lists */
+        .list-title {
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+
+        /* FAV LIST and SAVE LIST styles */
+        .fav-list, .save-list {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Card styling */
+        .card {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
+        /* Image styling */
+        .card-image {
+            width: 200px; 
+            height: 200px; 
+            margin-right: 20px; 
+        }
+
+        .business-logo {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        /* Card info styling */
+        .card-info {
+            flex-grow: 1; 
+            text-align: right;
+        }
+
+        .card-info h3 {
+            margin: 0; 
+        }
+
+        .card-info p {
+            margin: 5px 0;
+        }
+
+        /* Image placeholder styling */
+        .image-placeholder {
+            width: 200px;
+            height: 200px; 
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-placeholder {
+            width: 150px;  /* Set a fixed width */
+            height: 150px; /* Set a fixed height to create a square */
+            background-size: cover; /* Ensures the image covers the entire area */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            border-radius: 50%; /* Optional: Makes the image circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888; /* Placeholder text color */
+            font-size: 16px;
+            font-weight: bold;
     }
 
-    .navbar.active .nav-links {
-        display: flex;
-    }
-}
+/* Logo container styling */
+.logo-container {
+     display: flex;
+     align-items: center;
+     text-transform: uppercase;
+     font-weight: bold;
+     font-size: 20px;
+     color: #333;
+   }
 
 
-/* Main Container */
-.container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-}
-
-/* Profile Section */
-.profile-section {
-    width: 45%; 
-    background-color: #e6e5e5;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.profile-section h1 {
-    font-size: 24px;
-    color: #8e44ad;
-    margin-top: 130px;
-    margin-bottom: 30px;
-}
-
-/* Personal Information Section */
-.profile-container {
-    background-color: #f2f2f2; 
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 20px; 
-}
-
-.profile-container h2 {
-    font-size: 15px; 
-    color: #000000; 
-    margin-top: 20px; 
-    margin-bottom: 10px; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center;
-    text-align: center; 
-}
-
-/* Profile Picture */
-.profile-picture {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Profile Picture Placeholder */
-.avatar-placeholder {
-    width: 250px; 
-    height: 300px; 
-    background-color: #e0e0e0; 
-    margin: 0 auto;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    margin-bottom: 10px; 
-}
-
-.upload-btn {
-    background-color: #FF7F50;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-/* Academic Information Table */
-.academic-info table {
-    width: 100%; 
-    border-collapse: collapse; 
-}
-
-.academic-info td {
-    padding: 10px; 
-    text-align: left; 
-}
-
-/* Bio Section */
-.bio-section {
-    margin-top: 20px; 
-}
-
-.bio-section h4 {
-    font-size: 15px; 
-    color: #000000; 
-    margin-left: 10px;
-    margin-bottom: 10px; 
-}
-
-.bio-textarea {
-    width: 90%; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    margin-bottom: 20px; 
-    margin-left: 10px;
-    resize: vertical;
-}
-
-.save-bio-btn {
-    background-color: #FF7F50; 
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px; 
-}
-
-/* Align the detail information to the right */
-.academic-info td:last-child {
-    text-align: right; 
-}
-
-/* Right Section (50% width) */
-.right-section {
-    width: 55%; 
-    margin-left: 10px;
-    background-color: #e6e5e5;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* User Greeting Section */
-.user-greeting {
-    height: 10px; 
-    width: 20%; 
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    background-color: #8e44ad; 
-    color: white; 
-    padding: 10px;
-    border-radius: 5px; 
-}
-
-/* Dropdown Styles */
-.dropdown1 {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-btn1 {
-    background: none;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown-content1 {
-    display: none; 
-    position: absolute;
-    background-color: white;
-    min-width: 100px;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    left: 0;
-    top: 100%; 
-}
-
-.dropdown-content1 a {
-    color: black;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content1 a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.dropdown1:hover .dropdown-content1 {
-    display: block;
-}
+   /* Styling individual letters */
+   .logo-container .logo-s,
+   .logo-container .logo-l,
+   .logo-container .logo-d {
+     display: inline-block;
+     padding: 5px;
+     position: relative;
+   }
 
 
-/* Title for the lists */
-.list-title {
-    text-align: center; 
-    margin-bottom: 20px; 
-}
+   /* Adding unique styles to each letter */
+   .logo-container .logo-s {
+     color: #ffe100; /* Blue color */
+   }
+   .logo-container .logo-l {
+     color: #8e44ad; /* Green color */
+     transform: rotate(-15deg);
+   }
+   .logo-container .logo-d {
+     color: #e74c3c; /* Red color */
+     text-decoration: underline;
+   }
 
-/* FAV LIST and SAVE LIST styles */
-.fav-list, .save-list {
-    background-color: #f2f2f2;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
 
-/* Card styling */
-.card {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-}
+   /* Optional hover effect */
+   .logo-container:hover .logo-s {
+     color: #ffc400;
+   }
+   .logo-container:hover .logo-l {
+     color: #fff;
+     transform: rotate(0deg);
+   }
+   .logo-container:hover .logo-d {
+     color: #c0392b;
+     text-decoration: none;
+   }
 
-/* Image styling */
-.card-image {
-    width: 200px; 
-    height: 200px; 
-    margin-right: 20px; 
-}
-
-.business-logo {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-/* Card info styling */
-.card-info {
-    flex-grow: 1; 
-    text-align: right;
-}
-
-.card-info h3 {
-    margin: 0; 
-}
-
-.card-info p {
-    margin: 5px 0;
-}
-
-/* Image placeholder styling */
-.image-placeholder {
-    width: 200px;
-    height: 200px; 
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
         
     </style>
 </head>
 <body>
-
  
-    
-<!-- Main Content -->
-<div class="container">
-
 <!-- Top Navigation Bar -->
 <nav class="navbar">
     <ul class="nav-links">
-        <!-- Hamburger Menu -->
-<li class="hamburger" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-</li>
-
-        <li><a href="#" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>
-        
-        <!-- Links visible after login -->
-        <li class="navAfterLogin" style="display: none;"><a href="#">Profile</a></li>
-        <li class="navAfterLogin" style="display: none;"><a href="#">Logout</a></li>
-        
+        <li class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </li>
+        <li><a href="homepage.html" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>
+         
         <li>
             <a href="#" id="discounts-btn">Discounts</a>
             <ul class="dropdown" id="discounts-dropdown">
@@ -468,99 +538,277 @@ body {
                 <li><a href="#">Entertainment Discounts</a></li>
             </ul>
         </li>
-        <li><a href="#">About</a></li>
+        <li><a href="about_page.html">About</a></li>
          <!-- Links visible before login -->
-        <li class="navBeforeLogin"><a href="#">Get Started</a></li>
+        <li  class="navBeforeLogin"><a href="signup_page.html">Get Started</a></li>
+          <!-- Links visible after login -->
+          <li class="navAfterLogin" style="display: none;"><a href="personal_homepage.html" id="greeting1"></a></li>
+     
     </ul>
-</nav>
-
+ </nav>
+ 
+ 
+     <!-- Overlay Navigation -->
+       <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="homepage.html">Home</a>
+            <a href="#">Food Discounts</a>
+            <a href="#">Entertainment Discounts</a>
+         
+            <a href="about_page.html">About Us</a>
+        </div>
+    </div>
+   <!-- Main Content -->
+   <div class="container">
     <!-- Profile Section -->
     <section class="profile-section">
-        <h1>PROFILE</h1>
-
-    <!-- Profile Container -->
-    <div class="profile-container">
-        <h2>PERSONAL INFORMATION</h2>
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <h2>PERSONAL INFORMATION</h2>
             <div class="profile-picture">
-
-    <!-- Placeholder for Profile Picture -->
-        <div class="avatar-placeholder"></div>
-            <button class="upload-btn">Upload Photo</button>
-
-</div>
+                <div class="profile-frame">
+                <div class="avatar-placeholder" id="avatar-placeholder">Profile Picture</div>
+                <input type="file" id="upload-photo" style="display: none;" accept="image/*">
+            </div>
+                <button class="upload-btn" onclick="document.getElementById('upload-photo').click()">Upload Photo</button>
+            </div>
             
-<!-- University/School Information -->
-<div class="academic-info">
-    <table>
-        <tr><td>Name: </td><td><!-- Name here --></td></tr>
-        <tr><td>University: </td><td><!-- University here --></td></tr>
-        <tr><td>Major: </td><td><!-- Major here --></td></tr>
-        <tr><td>Location: </td><td><!-- Location here --></td></tr>
-    </table>
-</div>
-                
-<!-- Bio Section -->
-<div class="bio-section">
-    <h4>BIO:</h4>
-        <textarea class="bio-textarea" rows="4" placeholder="Enter your bio here..."></textarea>
-        <button class="save-bio-btn">Save Bio</button>
-</div>
+            <!--Information -->
+            <div class="academic-info">
+                <table>
+                    <tr>
+                       
+                        <th><span id="username"></span></th>
+                        <td>
+                            <input type="text" id="username-input" placeholder="Your name.." style="display: none;">
+                        </td>
+                    </tr>
+                    <tr>
+                       
+                        <td> <label for="fname">Date of Birth: </label><span id="dateOfBirth"></span></td>
+                        <td>
+                            <div class="dob">
+                            <input type="text" id="year-input" placeholder="yyyy" style="display: none;" required>
+                            <input type="text" id="month-input"placeholder="mm" style="display: none;" required>
+                            <input type="text" id="day-input"placeholder="dd" style="display: none;" required>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                       
+                        <td> <label for="fname">Univeristy: </label><span id="university"></span></td>
+                        <td><input type="text" id="university-input" placeholder="University name.."style="display: none;"></td>
+                    </tr>
+                    <tr>
+                       
+                        <td> <label for="fname">Major: </label><span id="major"></span></td>
+                        <td><input type="text" id="major-input" placeholder="Major.." style="display: none;"></td>
+                    </tr>
+                    <tr>
+                        
+                        <td> <label for="fname">Location: </label><span id="location"></span></td>
+                        <td><input type="text" id="location-input" placeholder="Location.." style="display: none;"></td>
+                    </tr>
+                </table>
+            </div>
+            
+         
+            
+            <!-- Edit Button -->
+            <button class="save-btn">Edit</button>
+        </div>
+    </section>
+    <!-- End of profile-container -->
 
-</div></section>
-<!-- End of profile-container -->
-
-<!-- Right Section: Favorites and Saved Lists -->
-<aside class="right-section">
-    <div class="user-greeting">
-        <span>Hello <!-- Username here -->!</span>
-        <div class="dropdown1">
-            <button class="dropdown-btn1">▼</button>
-            <div class="dropdown-content1">
-                <a href="#">Settings</a>
-                <a href="#">Logout</a>
+    <!-- Right Section: Favorites and Saved Lists -->
+    <aside class="right-section">
+        <div class="user-greeting">
+            <p id="greeting"><span id="username"></span></p>
+            <div class="dropdown-profile">
+                <button class="dropdown-btn">▼</button>
+                <div class="dropdown-content">
+                    <a href="#">Settings</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
             </div>
         </div>
-    </div>    
 
-<!--FAV-SAVE-LIST Section-->
-<div class="fav-save-section">
+        <!-- FAV-SAVE-LIST Section -->
+        <div class="fav-save-section">
 
-    <!-- FAV LIST -->
-    <div class="fav-list">
-        <h4 class="list-title">FAV LISTS</h4>
-        <div class="card">
-        <div class="card-image">
+          
 
-    <!-- Empty space for image -->
-        <div class="image-placeholder"></div>
-    </div>
-        <div class="card-info">
-            <h3><!--Business name--></h3>
-            <p><!--Discount offer--></p>
-            <small><!--Expiration date--></small>
+            <!-- SAVE LIST -->
+            <div class="save-list">
+                <h4 class="list-title">SAVED LISTS</h4>
+                <div class="card">
+                    <div class="card-image">
+                        <div class="image-placeholder">Image Placeholder</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Saved Business 1</h3>
+                        <p>Location: Osaka</p>
+                        <p>Discount: 15%</p>
+                    </div>
+                </div>
+                <!-- Repeat for more saved items -->
+            </div>
         </div>
-    </div>
+    </aside>
+    <!-- End of Right Section -->
 </div>
 
-    <!-- SAVE LIST -->
-        <div class="save-list">
-        <h4 class="list-title">SAVE LISTS</h4>
-        <div class="card">
-        <div class="card-image">
+<!-- JavaScript Section -->
+<script>
 
-    <!-- Empty space for image -->
-        <div class="image-placeholder"></div>
-    </div>
-        <div class="card-info">
-            <h3><!--Business name--></h3>
-            <p><!--Discount offer--></p>
-            <small><!--Expiration date--></small>
-        </div>
-    </div>
-</div>
+
+// Mock authentication status - Replace with real login check
+const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+      window.onload = function() {
+        
+        const username = localStorage.getItem("currentUser"); // Adjust this key based on your setup
+
+        if (username) {
+        const user = JSON.parse(localStorage.getItem("user_" + username));
     
-    <script>
-function toggleMenu() {
+        if (user) {
+            document.getElementById('greeting').textContent = user.username;
+            document.getElementById('greeting1').textContent = "Welcome, " + user.username;
+            document.getElementById('username').textContent = user.username;
+            document.getElementById('university').textContent = user.university;
+            document.getElementById('major').textContent = user.major;
+            document.getElementById('location').textContent = user.location;
+            document.getElementById('dateOfBirth').textContent = user.dateOfBirth;
+        } else {
+            alert('No user data found. Please log in.');
+            window.location.href = 'login.html';
+        }
+    };
+        const savedImage = localStorage.getItem("profilePicture");
+    
+        if (savedImage) {
+            document.getElementById("avatar-placeholder").style.backgroundImage = `url(${savedImage})`;
+            document.getElementById("avatar-placeholder").textContent = ""; // Remove placeholder text
+        }
+
+        document.getElementById("upload-photo").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const imageBase64 = e.target.result;
+
+                // Save to localStorage
+                localStorage.setItem("profilePicture", imageBase64);
+
+                // Display the image
+                document.getElementById("avatar-placeholder").style.backgroundImage = `url(${imageBase64})`;
+                document.getElementById("avatar-placeholder").textContent = ""; // Remove placeholder text
+            };
+            
+            reader.readAsDataURL(file); // Convert image file to Base64 string
+        }
+    });
+    //////////////////////////////////////////////////////////////////////////////////////////
+      // Edit button functionality
+const currentUserKey = "user_" + localStorage.getItem("currentUser");
+const editButton = document.querySelector(".save-btn");
+
+editButton.addEventListener("click", function() {
+    const isEditing = editButton.textContent === "Save";
+
+    if (isEditing) {
+        // Save changes
+        const year = document.querySelector("input[placeholder='yyyy']").value;
+        const month = document.querySelector("input[placeholder='mm']").value;
+        const day = document.querySelector("input[placeholder='dd']").value;
+        const dob = `${year}-${month}-${day}`;
+
+        // Update displayed text content
+        document.getElementById('username').textContent = document.getElementById('username-input').value;
+        document.getElementById('dateOfBirth').textContent = dob;
+        document.getElementById('university').textContent = document.getElementById('university-input').value;
+        document.getElementById('major').textContent = document.getElementById('major-input').value;
+        document.getElementById('location').textContent = document.getElementById('location-input').value;
+        document.getElementById('greeting').textContent = document.getElementById('username-input').value;
+        document.getElementById('greeting1').textContent = "Welcome, " + document.getElementById('username-input').value;
+
+        // Retrieve current user data and key
+        const oldUsername = localStorage.getItem("currentUser");
+        const oldUserKey = "user_" + oldUsername;
+        const userData = JSON.parse(localStorage.getItem(oldUserKey)) || {};
+
+        // Update user data properties
+        const newUsername = document.getElementById('username-input').value;
+        userData.username = newUsername;
+        userData.university = document.getElementById('university-input').value;
+        userData.major = document.getElementById('major-input').value;
+        userData.location = document.getElementById('location-input').value;
+        userData.dateOfBirth = dob;
+
+        // Save updated data under the new key
+        const newUserKey = "user_" + newUsername;
+        localStorage.setItem(newUserKey, JSON.stringify(userData));
+
+        // Update currentUser to the new username and remove old key
+        localStorage.setItem("currentUser", newUsername);
+        if (oldUserKey !== newUserKey) {
+            localStorage.removeItem(oldUserKey); 
+        }
+
+        // Hide input fields and toggle button text
+        document.querySelectorAll('input[type="text"]').forEach(input => input.style.display = "none");
+        editButton.textContent = "Edit";
+        alert("Information saved successfully!");
+    } else {
+        // Enable editing and populate inputs with current data
+        document.getElementById('username-input').value = document.getElementById('username').textContent;
+        document.getElementById('year-input').value = document.getElementById('dateOfBirth').textContent.split('-')[0];
+        document.getElementById('month-input').value = document.getElementById('dateOfBirth').textContent.split('-')[1];
+        document.getElementById('day-input').value = document.getElementById('dateOfBirth').textContent.split('-')[2];
+        document.getElementById('university-input').value = document.getElementById('university').textContent;
+        document.getElementById('major-input').value = document.getElementById('major').textContent;
+        document.getElementById('location-input').value = document.getElementById('location').textContent;
+
+        // Show input fields and toggle button text
+        document.querySelectorAll('input[type="text"]').forEach(input => input.style.display = "inline");
+        editButton.textContent = "Save";
+    }
+});
+
+
+        const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
+        const afterLoginElements = document.querySelectorAll(".navAfterLogin");
+
+        if (isLoggedIn) {
+            beforeLoginElements.forEach(el => el.style.display = "none");
+            afterLoginElements.forEach(el => el.style.display = "block");
+        } else {
+            beforeLoginElements.forEach(el => el.style.display = "block");
+            afterLoginElements.forEach(el => el.style.display = "none");
+        }
+
+       
+
+
+      }
+
+      
+
+    function logout() {
+        // Clear user data from local storage
+        localStorage.removeItem('user');
+        localStorage.setItem("isLoggedIn", "false");
+        // Redirect to home page
+        window.location.href = 'homepage.html';
+    }
+
+    function toggleMenu() {
             const overlay = document.getElementById("myNav");
             overlay.style.width = overlay.style.width === "100%" ? "0" : "100%"; // Toggle overlay width
         }
@@ -574,38 +822,12 @@ function toggleMenu() {
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
 
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("review");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none"; 
-  }
-  slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1} 
-  x[slideIndex-1].style.display = "block"; 
-  setTimeout(carousel, 2000); 
-}
-
-// Mock authentication status - Replace with real login check
-const isLoggedIn = false; // Change this to `true` to simulate a logged-in state
-
-window.onload = function() {
-    const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
-    const afterLoginElements = document.querySelectorAll(".navAfterLogin");
-
-    if (isLoggedIn) {
-        beforeLoginElements.forEach(el => el.style.display = "none");
-        afterLoginElements.forEach(el => el.style.display = "block");
-    } else {
-        beforeLoginElements.forEach(el => el.style.display = "block");
-        afterLoginElements.forEach(el => el.style.display = "none");
-    }
-};
 
 
-    </script>
+
+
+
+
+</script>
 </body>
 </html>
