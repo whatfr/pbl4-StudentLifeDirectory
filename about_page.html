@@ -7,57 +7,15 @@
 />
     <style>
 
-        
+        body {
+            background-color: #f0f0f0;
+        }   
  /* Navigation Bar */
- /* Logo container styling */
- .logo-container {
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 20px;
-      color: #333;
-    }
-
-    /* Styling individual letters */
-    .logo-container .logo-s,
-    .logo-container .logo-l,
-    .logo-container .logo-d {
-      display: inline-block;
-      padding: 5px;
-      position: relative;
-    }
-
-    /* Adding unique styles to each letter */
-    .logo-container .logo-s {
-      color: #ffe100; /* Blue color */
-    }
-    .logo-container .logo-l {
-      color: #8e44ad; /* Green color */
-      transform: rotate(-15deg);
-    }
-    .logo-container .logo-d {
-      color: #e74c3c; /* Red color */
-      text-decoration: underline;
-    }
-
-    /* Optional hover effect */
-    .logo-container:hover .logo-s {
-      color: #ffc400;
-    }
-    .logo-container:hover .logo-l {
-      color: #fff;
-      transform: rotate(0deg);
-    }
-    .logo-container:hover .logo-d {
-      color: #c0392b;
-      text-decoration: none;
-    }
  .navbar {
             position: fixed;
             top: 40px;
             left: 70px;
-            width: 30%;
+            width: 35%;
             background-color: #ffff;
             padding: 0px;
             padding-left: 20px;
@@ -105,21 +63,22 @@
             background-color: #8e44ad;
             color: #fff;
         }
+
         .nav-title{
-    font-size: 28px;
-    font-weight: bold;
-    color: #ffffff; /* White text for contrast against dark background */
-    letter-spacing: 1px; /* Adds some spacing between letters */
-    font-family: 'Poppins', sans-serif; /* Clean, modern font */
-    text-transform: uppercase; /* Converts title to uppercase */
-    text-align: center;
-    margin: 0; /* Ensures the title is centered without extra spacing */
-        }
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* White text for contrast against dark background */
+            letter-spacing: 1px; /* Adds some spacing between letters */
+            font-family: 'Poppins', sans-serif; /* Clean, modern font */
+            text-transform: uppercase; /* Converts title to uppercase */
+            text-align: center;
+            margin: 0; /* Ensures the title is centered without extra spacing */
+                }
 
         .navbar-title:hover {
-    color: #FFD700; /* Gold color on hover */
-    transition: color 0.3s ease-in-out; /* Smooth color transition */
-}
+            color: #FFD700; /* Gold color on hover */
+            transition: color 0.3s ease-in-out; /* Smooth color transition */
+        }
 
 
         /* Dropdown Menu */
@@ -163,126 +122,194 @@
         .hamburger:hover .bar {
             background-color: #8e44ad;
         }
-.slider-container {
-            width: 100%;
-            overflow: hidden;
+
+	 /* Overlay Styles */
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .overlay-content {
             position: relative;
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease;
-            will-change: transform; /* Optimize for performance */
-        }
-
-        .team-member {
-            min-width: 25%; /* Adjust for the number of items per view */
-            padding: 20px;
             text-align: center;
+            margin-top: 200px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+    /* Logo container styling */
+    .logo-container {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 20px;
+        color: #333;
+        }
+
+        /* Styling individual letters */
+        .logo-container .logo-s,
+        .logo-container .logo-l,
+        .logo-container .logo-d {
+        display: inline-block;
+        padding: 5px;
+        position: relative;
+        }
+
+        /* Adding unique styles to each letter */
+        .logo-container .logo-s {
+        color: #ffe100; /* Blue color */
+        }
+        .logo-container .logo-l {
+        color: #8e44ad; /* Green color */
+        transform: rotate(-15deg);
+        }
+        .logo-container .logo-d {
+        color: #e74c3c; /* Red color */
+        text-decoration: underline;
+        }
+
+        /* Optional hover effect */
+        .logo-container:hover .logo-s {
+        color: #ffc400;
+        }
+        .logo-container:hover .logo-l {
+        color: #fff;
+        transform: rotate(0deg);
+        }
+        .logo-container:hover .logo-d {
+        color: #c0392b;
+        text-decoration: none;
+        }
+
+    .slider-container {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                border-radius: 12px;
+                background: white;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .slider {
+                display: flex;
+                transition: transform 0.5s ease;
+                will-change: transform; /* Optimize for performance */
+            }
+
+            .team-member {
+                min-width: 25%; /* Adjust for the number of items per view */
+                padding: 20px;
+                text-align: center;
+                flex-shrink: 0;
+            }
+
+            .team-member img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin-bottom: 10px;
+            }
+
+            .team-member h3 {
+                font-size: 20px;
+                color: #333;
+            }
+
+            .team-member p {
+                font-size: 14px;
+                color: #666;
+            }
+
+        .accordion__wrapper {
+            margin: auto;
+            box-shadow: #888888;
+            border-radius: 2.5rem;
+            width: 100%;
+            max-width: 60rem;
+            padding: 5rem;
+        }
+
+        .accordion__title{
+            font-size: var(--fs-lg);
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .accordion {
+            border-bottom: 0.1rem solid #333;
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .accordion__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        } 
+
+        .accordion__icon {
+            background-color: #8e44ad;
+            width: 2.2rem;
+            height: 2.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #fff;
             flex-shrink: 0;
         }
 
-        .team-member img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
+        .accordion__question{
+            font-size: var(--fs-md);
+            font-weight: var(--fw-medium);
+            color: var(--color-title);
         }
 
-        .team-member h3 {
-            font-size: 20px;
-            color: #333;
+        .accordion__answer{
+            padding: 2rem 0;
         }
 
-        .team-member p {
-            font-size: 14px;
-            color: #666;
+        .accordion__content{
+            overflow: hidden;
+            height: 0;
+            transition: var(--transition);
         }
-
-accordion__wrapper {
-    background-color:#8e44ad;
-    box-shadow: #888888;
-    border-radius: 2.5rem;
-    width: 100%;
-    max-width: 60rem;
-    padding: 5rem;
-}
-
-.accordion__title{
-    font-size: var(--fs-lg);
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.accordion {
-    border-bottom: 0.1rem solid #333;
-    padding-bottom: 2rem;
-    margin-bottom: 3rem;
-}
-
-.accordion__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-} 
-
-.accordion__icon {
-    background-color: #8e44ad;
-    width: 2.2rem;
-    height: 2.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #fff;
-    flex-shrink: 0;
-}
-
-.accordion__question{
-    font-size: var(--fs-md);
-    font-weight: var(--fw-medium);
-    color: var(--color-title);
-}
-
-.accordion__answer{
-    padding: 2rem 0;
-}
-
-.accordion__content{
-    overflow: hidden;
-    height: 0;
-    transition: var(--transition);
-}
 
 @media screen and (min-width: 580px) {
     .accordion__wrapper {
         padding: 5rem 8rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         * {
             margin: 0;
@@ -291,9 +318,7 @@ accordion__wrapper {
             font-family: system-ui, -apple-system, sans-serif;
         }
 
-        body {
-            background-color: #f0f0f0;
-        }
+        
 
         .menu-icon {
             position: absolute;
@@ -337,12 +362,12 @@ accordion__wrapper {
             align-items: center;
         }
         .about-section .video-frame{
-            width: 100%; /* Full width of the column */
-    height: 100%; /* Maintain aspect ratio */
-  
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+                width: 100%; /* Full width of the column */
+                height: 100%; /* Maintain aspect ratio */
+            
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
 
 
 
@@ -489,7 +514,7 @@ accordion__wrapper {
 </head>
 <body>
    
-          <!-- Top Navigation Bar -->
+     <!-- Top Navigation Bar -->
    <!-- Top Navigation Bar -->
 <nav class="navbar">
     <ul class="nav-links">
@@ -498,14 +523,9 @@ accordion__wrapper {
             <div class="bar"></div>
             <div class="bar"></div>
         </li>
-        <li><a href="homepage.html" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>
+        <li><a href="homepage.html" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>    
         
        
-        
-        <!-- Links visible after login -->
-        <li class="navAfterLogin" style="display: none;"><a href="#">Profile</a></li>
-        <li class="navAfterLogin" style="display: none;"><a href="#">Logout</a></li>
-        
         <li>
             <a href="#" id="discounts-btn">Discounts</a>
             <ul class="dropdown" id="discounts-dropdown">
@@ -514,10 +534,27 @@ accordion__wrapper {
             </ul>
         </li>
         <li><a href="about_page.html">About</a></li>
+         <!-- Links visible after login -->
+         <li class="navAfterLogin" style="display: none;"><a href="personal_homepage.html" id="greeting"></a></li>
+     
+         
          <!-- Links visible before login -->
         <li  class="navBeforeLogin"><a href="signup_page.html">Get Started</a></li>
     </ul>
 </nav>
+
+  <!-- Overlay Navigation -->
+       <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="homepage.html">Home</a>
+            <a href="#">Food Discounts</a>
+            <a href="#">Entertainment Discounts</a>
+          
+            <a href="about_page.html">About Us</a>
+        </div>
+    </div>
+
 <div class="container">
         
             <div class="about-section">
@@ -532,22 +569,6 @@ accordion__wrapper {
                 <p>We provide the most comprehensive collection of discounts across all products, updated in real-time, including exclusive offers for students. With easy access and complete information at your fingertips, every penny you spend goes further, helping you elevate your quality of life to the next level.</p>
             </div>
             <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
       
@@ -749,6 +770,7 @@ accordion__wrapper {
 
 
     <script>
+
         const accordions = document.querySelectorAll(".accordion");
 
 accordions.forEach((accordion, index) => {
@@ -788,11 +810,50 @@ let currentIndex = 0;
         }
         slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
     window.onload = () => {
         slideWidth = teamMembers[0].offsetWidth; // Get slide width after DOM content loaded
         setInterval(autoSlide, 3000); // Adjust the interval as needed
-    };
+
+        const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
+            const afterLoginElements = document.querySelectorAll(".navAfterLogin");
+
+            if (isLoggedIn) {
+                beforeLoginElements.forEach(el => el.style.display = "none");
+                afterLoginElements.forEach(el => el.style.display = "block");
+            } else {
+                beforeLoginElements.forEach(el => el.style.display = "block");
+                afterLoginElements.forEach(el => el.style.display = "none");
+            }
+        };
+
+ 
+        const currentUser = localStorage.getItem("currentUser");
+
+// Display the username if it exists
+if (currentUser) {
+    document.getElementById('greeting').textContent = "Welcome, " + currentUser;
+} else {
+    document.getElementById('greeting').textContent = "Hello, Guest!";
+}
+
+
+    
+ function toggleMenu() {
+            const overlay = document.getElementById("myNav");
+            overlay.style.width = overlay.style.width === "100%" ? "0" : "100%"; // Toggle overlay width
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0"; // Close overlay
+        }
+
+        document.getElementById('discounts-btn').addEventListener('click', function() {
+            var dropdown = document.getElementById('discounts-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
 
     </script>
 </body>
