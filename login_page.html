@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Baskerville', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f5f5f6;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,39 +24,36 @@
             overflow: hidden; /* Prevent scrolling */
         }
 
-        /* Container to hold form and image, both as separate boxes */
+        /* Container to hold form and image */
         .container {
             display: flex;
             justify-content: space-between;
-            width: 100vw; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-            padding: 20px; /* Padding around the container */
-            gap: 20px; /* Space between the sign-up box and image box */
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            gap: 20px;
         }
 
-        /* Sign-up form box */
+        /* Login box */
         .login-box {
-            width: 65%; /* Adjusted to be larger */
-            max-width: 760px; /* Limit width for larger screens */
-            padding: 40px; /* Inner padding */
-            border: 5px solid #ffffff; /* Outer border */
-            /* border-radius: 10px; */
+            width: 65%;
+            max-width: 760px;
+            padding: 40px;
+            border: 5px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: #fff; /* Move the background color here for clarity */
+            background-color: #fff;
         }
 
-        /* Sign-up title with bar and square decoration */
+        /* Login title with bar and square decoration */
         .login-title {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 40px;
             position: relative;
-            top: 0;  /* Start at the top */
-            transform: translateY(-50px); /* Adjust vertically */
         }
 
         .login-title h2 {
@@ -66,7 +63,7 @@
             text-align: center;
         }
 
-        /* Decorative elements next to the sign-up title */
+        /* Decorative elements next to the login title */
         .login-title::before,
         .login-title::after {
             content: '';
@@ -84,16 +81,9 @@
             margin-left: 10px;
         }
 
-        .login-form {
-            display: flex;
-            flex-direction: column; /* Keep the elements in a vertical column */
-            align-items: center; /* Center all child elements horizontally */
-        }
-
-
         /* Input fields styling */
         .login-form input {
-            width: 60%;
+            width: 100%;
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -101,10 +91,6 @@
             font-size: 14px;
             font-family: 'Baskerville', sans-serif;
             color: #333;
-            align-self: center;
-            position: flex;
-            top: 0;  /* Start at the top */
-            transform: translateY(-50px); /* Adjust vertically */
         }
 
         .login-form input::placeholder {
@@ -112,21 +98,10 @@
             color: #888;
         }
 
-        /* Date of birth fields */
-        .dob {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .dob input {
-            width: 33.33%;
-        }
-
-        /* Signup button styling */
+        /* Login button styling */
         .login-form button {
-            width: 60%;
-            background-color: #8e44ad;
+            width: 100%;
+            background-color: #ff7e5f;
             color: #fff;
             border: none;
             padding: 12px;
@@ -134,185 +109,53 @@
             font-size: 16px;
             cursor: pointer;
             margin-top: 20px;
-            top: 0;  /* Start at the top */
-            transform: translateY(-50px); /* Adjust vertically */
         }
 
         .login-form button:hover {
-            background-color: #63267d;
+            background-color: #e06548;
         }
 
-        .forgot-password {
-            text-align: right;
-            font-size: 14px;
-            margin-bottom: 20px;
-            margin-right: 20%;
-            top: 0;  /* Start at the top */
-            transform: translateY(-50px); /* Adjust vertically */
-            position: flex;
-            align-self: flex-end; /* Keep it on the right side */
-        }
-
-        .forgot-password a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        /* signup link */
+        /* Sign-up link */
         .signup-link {
-            margin-top: 40px;
-            margin-bottom: 40px;
+            margin-top: 10px;
             font-size: 14px;
             color: #555;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px; /* Adds spacing between text and button */
-            top: 0;  /* Start at the top */
-            transform: translateY(-40px); /* Adjust vertically */
         }
 
         .signup-link a {
-            display: inline-block;
-            width: 20px; /* Set fixed width */
-            height: 20px; /* Set fixed height (equal to width for a circle) */
-            background-color: #8e44ad; /* Set the background color */
-            color: #fff; /* White text color */
             text-decoration: none;
-            border-radius: 50%; /* Makes the button circular */
-            font-size: 10px; /* Adjust font size */
-            font-weight: bold; /* Bold text */
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the arrow inside the circle */
-            transition: background-color 0.3s ease; /* Smooth hover transition */
-        }
-
-        .signup-link a:hover {
-            background-color: #0056b3; /* Darker background on hover */
-        }
-
-
-
-        /* Third-party title with bar decoration */
-        .third-party-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
-            position: relative;
-            margin-top: 30px;
-            top: 0;  /* Start at the top */
-            transform: translateY(-30px); /* Adjust vertically */
-        }
-
-        .third-party-title div {
-            font-size: 14px;
-            color: #8e44ad;
-            margin-bottom: 10px;
-        }
-
-        .third-party-title::before,
-        .third-party-title::after {
-            content: '';
-            display: block;
-            width: 150px;
-            height: 2px;
-            background-color: #63267d;
-        }
-
-        .third-party-title::before {
-            margin-right: 10px;
-        }
-
-        .third-party-title::after {
-            margin-left: 10px;
-        }
-
-
-        /* Social icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            top: 0;  /* Start at the top */
-            transform: translateY(-10px); /* Adjust vertically */
-        }
-
-        .social-icons a {
-            margin: 0 40px;
-        }
-
-        .icon-apple {
-            width: 50px;  /* Apple icon size */
-            height: 30px; /* Apple icon size */
-        }
-
-        .icon-facebook {
-            width: 30px;  /* Facebook icon size */
-            height: 30px; /* Facebook icon size */
-        }
-
-        .icon-google {
-            width: 30px;  /* Google icon size */
-            height: 30px; /* Google icon size */
-        }
-
-        .icon-twitter {
-            width: 30px;  /* Twitter icon size */
-            height: 30px; /* Twitter icon size */
+            color: #007bff;
         }
 
         /* Right-side box for the image */
         .image-box {
-            width: 45%; /* Adjusted to be smaller */
-            max-width: 800px; /* Limit width for larger screens */
+            width: 45%;
+            max-width: 800px;
             background-color: #f0f0f0;
-            padding: 20px; /* Inner padding */
-            border: 30px solid #ccc; /* Outer border */
-            /* border-radius: 8px; */
+            padding: 20px;
+            border: 30px solid #ccc;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background: url("https://www.pngall.com/wp-content/uploads/15/Login-PNG-Photo.png") no-repeat center;
-            background-size: 80%; /* This will ensure the image covers the background */
-            box-sizing: border-box; /* Ensures padding is included in total width and height */
-}
-        
+            background: url("https://i.im.ge/2024/07/11/V6yoic.watercolor-light-steel-blue-wallpaper-image.jpeg") no-repeat center;
+            background-size: cover;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Left box: Sign-up form -->
+        <!-- Left box: Login form -->
         <div class="login-box">
-            <form class="login-form">
+            <form class="login-form" onsubmit="return false;">
                 <div class="login-title">
                     <h2>LOG IN</h2>
                 </div>
 
-                <input type="text" placeholder="ID" required>
-                <input type="password" placeholder="Password" required>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
 
-                <div class="forgot-password">
-                    <a href="#">Forgot password</a>
-                </div>
-                
-
-
-                <button type="submit">LOGIN</button>
-
-                <div class="signup-link">
-                    <span>Sign up</span>
-                    <a href="signup_page.html">→</a> <!-- This is the arrow button -->
-                </div>
-                <div class="third-party-title">
-                    <div>Third-party</div>
-                </div>
-                
-                        <div class="social-icons">
-                            <a href="#"><img src="https://i.im.ge/2024/10/17/ky4tXL.Apple-Logo.png" alt="Apple" class="icon-apple"></a>
-                            <a href="#"><img src="https://i.im.ge/2024/10/17/ky4Zi9.15707770.png" alt="Facebook" class="icon-facebook"></a>
-                            <a href="#"><img src="https://i.im.ge/2024/10/17/kyB6JM.09-google-3-512.webp" alt="Google" class="icon-google"></a>
-                            <a href="#"><img src="https://i.im.ge/2024/10/17/kyBPSY.x-social-media-black-icon.png" alt="Twitter" class="icon-twitter"></a>
-                        </div>
+                <button type="button" onclick="login()">LOG IN</button>
+                <p class="signup-link">Don't have an account? <a href="signup_page.html">Sign Up.</a></p>
             </form>
         </div>
 
@@ -321,7 +164,23 @@
     </div>
 
     <script>
-        // Add your JavaScript here
+       function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Retrieve user data from local storage using dynamic key
+    const user = JSON.parse(localStorage.getItem("user_" + username));
+
+    if (user && user.password === password) { // Check if user exists and password matches
+        // Redirect to home page if login is successful
+      
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentUser", username);
+        window.location.href = 'homepage.html';
+    } else {
+        alert('Invalid username or password. Please try again.');
+    }
+}
     </script>
 </body>
 </html>
