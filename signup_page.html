@@ -28,24 +28,23 @@
         .container {
             display: flex;
             justify-content: space-between;
-            width: 100vw; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-            padding: 20px; /* Padding around the container */
-            gap: 20px; /* Space between the sign-up box and image box */
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            gap: 20px;
         }
 
         /* Sign-up form box */
         .signup-box {
-            width: 65%; /* Adjusted to be larger */
-            max-width: 760px; /* Limit width for larger screens */
-            padding: 40px; /* Inner padding */
-            border: 5px solid #ffffff; /* Outer border */
-            /* border-radius: 10px; */
+            width: 65%;
+            max-width: 760px;
+            padding: 40px;
+            border: 5px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: #fff; /* Move the background color here for clarity */
+            background-color: #fff;
         }
 
         /* Sign-up title with bar and square decoration */
@@ -113,7 +112,7 @@
         /* Signup button styling */
         .signup-form button {
             width: 100%;
-            background-color: #8e44ad;
+            background-color: #ff7e5f;
             color: #fff;
             border: none;
             padding: 12px;
@@ -124,7 +123,7 @@
         }
 
         .signup-form button:hover {
-            background-color: #63267d;
+            background-color: #e06548;
         }
 
         /* Login link */
@@ -151,52 +150,35 @@
             margin: 0 20px;
         }
 
-        .icon-apple {
-            width: 40px;  /* Apple icon size */
-            height: 30px; /* Apple icon size */
-        }
-
-        .icon-facebook {
-            width: 30px;  /* Facebook icon size */
-            height: 30px; /* Facebook icon size */
-        }
-
-        .icon-google {
-            width: 30px;  /* Google icon size */
-            height: 30px; /* Google icon size */
-        }
-
-        .icon-twitter {
-            width: 30px;  /* Twitter icon size */
-            height: 30px; /* Twitter icon size */
+        .icon-apple, .icon-facebook, .icon-google, .icon-twitter {
+            width: 30px; 
+            height: 30px;
         }
 
         /* Right-side box for the image */
         .image-box {
-            width: 45%; /* Adjusted to be smaller */
-            max-width: 800px; /* Limit width for larger screens */
+            width: 45%;
+            max-width: 800px;
             background-color: #f0f0f0;
-            padding: 20px; /* Inner padding */
-            border: 30px solid #ccc; /* Outer border */
-            /* border-radius: 8px; */
+            padding: 20px;
+            border: 30px solid #ccc;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             background: url("https://i.im.ge/2024/07/11/V6yoic.watercolor-light-steel-blue-wallpaper-image.jpeg") no-repeat center;
-            background-size: cover; /* This will ensure the image covers the background */
-            box-sizing: border-box; /* Ensures padding is included in total width and height */
-}
-
+            background-size: cover;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Left box: Sign-up form -->
         <div class="signup-box">
-            <form class="signup-form">
+            <form class="signup-form" onsubmit="handleSignUp(event)">
                 <div class="signup-title">
                     <h2>SIGN UP</h2>
                 </div>
 
-                <input type="text" placeholder="ID" required>
+                <input type="text" placeholder="Name" required>
                 <input type="password" placeholder="Password" required>
                 <input type="password" placeholder="Confirm password" required>
 
@@ -212,7 +194,6 @@
                 <button type="submit">SIGN UP</button>
                 <p class="login-link">Already have an account? <a href="login_page.html">Log In.</a></p>
 
-
                 <div class="social-icons">
                     <a href="#"><img src="https://i.im.ge/2024/10/17/ky4tXL.Apple-Logo.png" alt="Apple" class="icon-apple"></a>
                     <a href="#"><img src="https://i.im.ge/2024/10/17/ky4Zi9.15707770.png" alt="Facebook" class="icon-facebook"></a>
@@ -227,35 +208,43 @@
     </div>
 
     <script>
-        document.getElementById("signupForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            
-            const id = document.getElementById("id").value;
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
-            const dobYear = document.getElementById("dobYear").value;
-            const dobMonth = document.getElementById("dobMonth").value;
-            const dobDay = document.getElementById("dobDay").value;
-            const university = document.getElementById("university").value;
-            const email = document.getElementById("email").value;
+        // Function to handle sign-up
+        function handleSignUp(event) {
+            event.preventDefault(); // Prevent form from submitting
 
+            // Get form data
+            const userName = document.querySelector("input[placeholder='Name']").value;
+            const password = document.querySelector("input[placeholder='Password']").value;
+            const confirmPassword = document.querySelector("input[placeholder='Confirm password']").value;
+            const year = document.querySelector("input[placeholder='yyyy']").value;
+            const month = document.querySelector("input[placeholder='mm']").value;
+            const day = document.querySelector("input[placeholder='dd']").value;
+            const university = document.querySelector("input[placeholder='University']").value;
+            const email = document.querySelector("input[placeholder='Email']").value;
+
+            // Simple validation checks
             if (password !== confirmPassword) {
-                alert("Passwords do not match!");
+                alert("Passwords do not match. Please re-enter.");
                 return;
             }
 
-            if (!dobYear.match(/^\d{4}$/) || !dobMonth.match(/^\d{1,2}$/) || !dobDay.match(/^\d{1,2}$/)) {
-                alert("Please enter a valid date of birth.");
-                return;
-            }
+            // Create a user object to store
+            const user = {
+                username: userName, // Add username to the object
+                password: password,
+                dateOfBirth: `${year}-${month}-${day}`,
+                university: university,
+                email: email
+            };
 
-            if (dobMonth < 1 || dobMonth > 12 || dobDay < 1 || dobDay > 31) {
-                alert("Please enter a valid month or day.");
-                return;
-            }
+            // Save the user data to localStorage
+            localStorage.setItem("user_" + userName, JSON.stringify(user));
+            alert("Sign-up successful! Your data has been saved.");
+            window.location.href = "login_page.html";
 
-            alert(`Registration successful for ${id} at ${university}!`);
-        });
+            // Clear the form fields
+            document.querySelector(".signup-form").reset();
+        }
     </script>
 </body>
 </html>
