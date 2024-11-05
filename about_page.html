@@ -55,7 +55,7 @@
       text-decoration: none;
     }
  .navbar {
-            position: fixed;
+            position: absolute;
             top: 40px;
             left: 70px;
             width: 30%;
@@ -169,14 +169,15 @@
             overflow: hidden;
             position: relative;
             border-radius: 12px;
-            background: white;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+          
+           
         }
 
         .slider {
             display: flex;
             transition: transform 0.5s ease;
-            will-change: transform; /* Optimize for performance */
+            will-change: transform; 
+           /* Optimize for performance */
         }
 
         .team-member {
@@ -186,12 +187,7 @@
             flex-shrink: 0;
         }
 
-        .team-member img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
+       
 
         .team-member h3 {
             font-size: 20px;
@@ -412,10 +408,10 @@ accordion__wrapper {
         }
 
         .team-member img {
-            width: 45px;
-            height: 45px;
+            width: 30%;
+            height: 60%;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .team-member h3 {
@@ -499,6 +495,9 @@ accordion__wrapper {
             padding: 5rem;
             margin: 0 auto; /* Center alignment */
         }
+        .introductionA{
+            text-align: center;
+        }
 
         .contact-container form {
             display: flex;
@@ -528,6 +527,169 @@ accordion__wrapper {
             background-color: #45a049;
         }
 
+
+        .card_grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-top: 5px solid var(--border-color);
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(23, 79, 138, 0.1);
+}
+
+.card_title {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: var(--fw-bold);
+}
+
+.card_content {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.card_img {
+  margin-left: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .card_grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    align-items: stretch;
+  }
+
+  .cyan {
+    grid-area: auto;
+  }
+
+  .blue {
+    grid-area: auto;
+  }
+
+  .card {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card_grid {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}
+
+.cyan {
+  --border-color: hsl(180, 62%, 55%);
+  grid-area: 1 / 1 / 3 / 2;
+}
+
+.red {
+  --border-color: hsl(0, 78%, 62%);
+}
+
+.orange {
+  --border-color: hsl(34, 97%, 64%);
+}
+
+.blue {
+  --border-color: hsl(212, 86%, 64%);
+  grid-area: 1 / 3 / 3 / 4;
+}
+
+.section-padding {
+            padding: 1em 2em;
+        }
+
+        .section-margin {
+            margin: 1em 2em;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            z-index: 0;
+            justify-content: space-evenly;
+            justify-items: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-item-yellow, .card-item-orange, .card-item-pcblue, .card-item-green {
+            position: relative;
+            width: 100%;
+        }
+
+        .card-item-yellow { color: #f1a01f; }
+        .card-item-orange { color: #f26723; }
+        .card-item-pcblue { color: #1395d3; }
+        .card-item-green { color: #a5b038; }
+
+        .timeline::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 75%;
+            background-color: #d5d5d5;
+            top: 38%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; /* Changed to 1 */
+        }
+
+        .subcard {
+            position: absolute;
+            padding: 1.5em;
+            background: #fdfdfd;
+            color: black;
+            box-shadow: 4px 4px 8px #d9d9d9fc;
+            margin: 3.8em 1.5rem;
+            width: -webkit-fill-available;
+        }
+
+        span.circle-custom {
+            display: block;
+            text-align: center;
+        }
+
+        .circle-custom.fa.fa-stack.fa-2x::after {
+            display: block;
+            text-align: center;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-size: 1.5em;
+            color: #d5d5d5;
+        }
+
+        @media (max-width: 830px) {
+            .timeline {
+                display: block !important;
+            }
+            .subcard {
+                position: static !important;
+                display: block;
+                box-shadow: 0 0 0;
+                background: transparent;
+            }
+            .timeline::after {
+                display: none !important;
+            }
+        }
 
 
 
@@ -601,17 +763,69 @@ accordion__wrapper {
         <div class="right-content">
             <div class="top-section">
                 <div class="introduction">
-                    <h2>Our Goal</h2>
-                    <p>Our goal is to create an intuitive and efficient smart parking web application that helps users locate available parking spots easily, register, and avail of discount offers. By improving the user experience, we aim to simplify parking processes, reduce time spent searching for parking, and ultimately contribute to reducing traffic congestion in urban areas.</p>
-                </div>
+                    <main id="main" class="section-margin section-padding">
+                        <header>
+                                       <h1>Our Goal</h1>
+                        </header>
+                        <div style="min-height: 250px;">
+                            <div style="position: relative;">
+                                <div class="timeline">
+                                    <div class="card-item-pcblue">
+                                        <span aria-hidden="true" class="fa fa-stack fa-2x circle-custom">
+                                            <i aria-hidden="true" class="fa fas fa-circle fa-stack-2x"></i>
+                                            <i aria-hidden="true" class="fa fa-hard-hat fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <div class="subcard">
+                                           <p> <strong>Engagement with Universities</strong></p><br>Partner with various universities to promote the directory and its benefits to students.
+                                        </div>
+                                    </div>
+                                    <div class="card-item-yellow">
+                                        <span aria-hidden="true" class="fa fa-stack fa-2x circle-custom">
+                                            <i aria-hidden="true" class="fa fas fa-circle fa-stack-2x"></i>
+                                            <i aria-hidden="true" class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <div class="subcard">
+                                            <p><strong>Inclusion of Academic Departments</strong></p><br>Ensure that all academic departments are represented, allowing students from different fields to find relevant local businesses.
+
+                                        </div>
+                                    </div>
+                                    <div class="card-item-orange">
+                                        <span aria-hidden="true" class="fa fa-stack fa-2x circle-custom">
+                                            <i aria-hidden="true" class="fa fas fa-circle fa-stack-2x"></i>
+                                            <i aria-hidden="true" class="fa fa-globe fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <div class="subcard">
+                                        <p><strong>Support for All Faculties</strong></p><br> Cater to a diverse range of faculties, encouraging collaboration between students and businesses across disciplines.
+                                        </div>
+                                    </div>
+                                    <div class="card-item-green">
+                                        <span aria-hidden="true" class="fa fa-stack fa-2x circle-custom">
+                                            <i aria-hidden="true" class="fa fas fa-circle fa-stack-2x"></i>
+                                            <i aria-hidden="true" class="fa fa-house fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                        <div class="subcard">
+                                            <p><strong>Accessibility for All Students</strong></p><br>Provide services and discounts to undergraduates, graduates, and alumni, making the directory a valuable resource for the entire academic community.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    </div>
          
             </div>
 
+            <h1 style="text-align: center;">Our Members</h1>
+
             <div class="slider-container">
+                
                 <div class="slider">
                     <div class="team-member">
                         <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Bou</h3>
+                        <h3>Thet Htar Aung</h3>
                         <p>Designer</p>
                         <p>UI Designer Leader</p>
                     </div>
@@ -664,58 +878,47 @@ accordion__wrapper {
                         <p>Designer</p>
                         <p>UI Designer Leader</p>
                     </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Austin</h3>
-                        <p>Designer</p>
-                        <p>UI Designer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Mitsuki</h3>
-                        <p>Programmer</p>
-                        <p>HTML+CSS Programmer Leader</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Manami</h3>
-                        <p>Programmer</p>
-                        <p>HTML+CSS Programmer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Nagae</h3>
-                        <p>Programmer</p>
-                        <p>HTML+CSS Programmer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Areeba</h3>
-                        <p>Programmer</p>
-                        <p>JavaScript Programmer Leader</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Satvik</h3>
-                        <p>Programmer</p>
-                        <p>JavaScript Programmer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="/img/img_avatar2.gif" alt="Team member">
-                        <h3>Rin</h3>
-                        <p>Programmer</p>
-                        <p>JavaScript Programmer</p>
-                    </div>
+                   
                 </div>
             </div>
             <div>
+            
                 <div class="introductionA">
-                    <h2> Features</h2>
-                    <p>1. Real-time Parking Availability: Users can check available parking spaces in real-time, making it easy to plan their parking before arrival.</p>
-                    <p>2. Discount System: A discount feature for registered users helps them save on parking fees, with various promotional offers displayed on the site.</p>
-                    <p>3. Registration & Login: A simple registration process allows users to create accounts, sign in, and access personalized features like discounts and parking history.</p>
-                    <p>4. User Feedback Section: Users can leave feedback about their parking experience, contributing to continuous service improvement.</p>
-                    <p>5. Mobile-friendly Interface: The website is optimized for mobile devices, ensuring users can access all features on the go.</p>
+                    <h1 class="header_title">Features by SLD</h1>
+                                 
+                    <main class="card_grid">
+                        <section class="card cyan">
+                          <h2 class="card_title">Search by Category</h2>
+                          <p class="card_content">Students can easily search businesses based on categories like food and entertainment.
+                        </p>
+                          <img class="card_img" src="https://raw.githubusercontent.com/davidsonaguiar/frontendmentor/main/Four%20card%20feature%20section/images/icon-supervisor.svg" alt="Supervisor">
+                        </section>
+                    
+                        <section class="card red">
+                          <h2 class="card_title">Discounts & Coupons</h2>
+                          <p class="card_content">Scans our talent network to create the optimal team for your project</p>
+                          <img class="card_img" src="https://cdn-icons-png.flaticon.com/512/9568/9568024.png" alt="page-home" style="width:30%;">
+                        </section>
+                    
+                        <section class="card blue">
+                          <h2 class="card_title">Contact and Support Section</h2>
+                          <p class="card-content">Allowing students to ask questions or address concerns. This section may also include FAQs and direct communication channels, </p>
+                          <img class="card_img" src="https://raw.githubusercontent.com/davidsonaguiar/frontendmentor/main/Four%20card%20feature%20section/images/icon-karma.svg" alt="Karma">
+                        </section>
+                    
+                        <section class="card orange">
+                          <h2 class="card_title">User Account and Profile Management</h2>
+                          <p class="card_content">Uses data from past projects to provide better delivery estimates</p>
+                          <img class="card_img" src="https://raw.githubusercontent.com/davidsonaguiar/frontendmentor/main/Four%20card%20feature%20section/images/icon-team-builder.svg" alt="Calculator">
+                        </section>
+                      </main>
+                    </div>
+                
+                
+                
+                
+                
+                
                 </div>
         </div>
 
@@ -755,65 +958,67 @@ accordion__wrapper {
             <!-- Accordion 1  -->
             <div class="accordion">
                 <div class="accordion__header">
-                    <h2 class="accordion__question">What is the purpose of this pen?</h2>
+                    <h2 class="accordion__question">How do I sign up for an account?</h2>
                     <span class="accordion__icon">
                         <i id="accordion-icon" class="ri-add-line"></i>
                     </span>
                 </div>
                 <div class="accordion__content">
-                    <p class="accordion__answer">This pen is designed to provide web developers with boilerplate code for a FAQ Accordion.</p>
+                    <p class="accordion__answer">Click on the "Sign Up" button on the homepage and fill in the required information. After submitting, you’ll receive a confirmation notification box. Then, you can log in and access your account.</p>
                 </div>
             </div>
     
             <!-- Accordion 2  -->
             <div class="accordion">
                 <div class="accordion__header">
-                    <h2 class="accordion__question">What is an accordion?</h2>
+                    <h2 class="accordion__question">Are the discounts only for students?</h2>
                     <span class="accordion__icon">
                         <i id="accordion-icon" class="ri-add-line"></i>
                     </span>
                 </div>
                 <div class="accordion__content">
-                    <p class="accordion__answer">An accordion is a vertically stacked list of headers that users can click on to reveal more information about a business. With an accordion, when someone visits your web page, they will see a list of headers.</p>
+                    <p class="accordion__answer">Yes, the discounts listed on our site are exclusively for students. You may need to show a valid student ID at participating businesses to redeem discounts.</p>
                 </div>
             </div>
     
             <!-- Accordion 3 -->
             <div class="accordion">
                 <div class="accordion__header">
-                    <h2 class="accordion__question">How can I customize the accordion?</h2>
+                    <h2 class="accordion__question">What should I do if a discount isn’t available or has expired?</h2>
                     <span class="accordion__icon">
                         <i id="accordion-icon" class="ri-add-line"></i>
                     </span>
                 </div>
                 <div class="accordion__content">
-                    <p class="accordion__answer">You can customize the accordion by modifying the CSS styles and changing the HTML structure as per your needs. You can also add JavaScript to enhance its functionality.</p>
+                    <p class="accordion__answer">We strive to keep information up-to-date, but occasionally discounts may change without notice. If you find an expired discount, please let us know through the Contact Us page.
+
+                    </p>
                 </div>
             </div>
 
             <!-- Accordion 4 -->
             <div class="accordion">
                 <div class="accordion__header">
-                    <h2 class="accordion__question">Is this accordion responsive?</h2>
+                    <h2 class="accordion__question"> Do I need to pay to use the site?</h2>
                     <span class="accordion__icon">
                         <i id="accordion-icon" class="ri-add-line"></i>
                     </span>
                 </div>
                 <div class="accordion__content">
-                    <p class="accordion__answer">Yes, this accordion is designed to be responsive and will adjust its layout based on the screen size to ensure a good user experience on both desktop and mobile devices.</p>
+                    <p class="accordion__answer"> No, our website is free to use! We aim to help students find affordable options without any added costs.</p>
                 </div>
             </div>
     
             <!-- Accordion 5 -->
             <div class="accordion">
                 <div class="accordion__header">
-                    <h2 class="accordion__question">Can I use this accordion in my project?</h2>
+                    <h2 class="accordion__question">How do I reset my password?</h2>
                     <span class="accordion__icon">
                         <i id="accordion-icon" class="ri-add-line"></i>
                     </span>
                 </div>
                 <div class="accordion__content">
-                    <p class="accordion__answer">Absolutely! Feel free to use this accordion in your projects. You can modify and adapt it as needed to fit your requirements.</p>
+                    <p class="accordion__answer">On the login page, click on “Forgot Password,” enter your registered email, and follow the instructions to reset your password.</p>
                 </div>
             </div>
         </div>
@@ -855,26 +1060,35 @@ accordions.forEach((accordion, index) => {
 
 
 let currentIndex = 0;
-    const slider = document.querySelector('.slider');
-    const teamMembers = document.querySelectorAll('.team-member');
-    const totalSlides = teamMembers.length;
-    const slideToShow = 4; // Number of slides to show at a time
-    let slideWidth = teamMembers[0].offsetWidth; // Width of one team member block
+const slider = document.querySelector('.slider');
+const teamMembers = document.querySelectorAll('.team-member');
+const totalSlides = teamMembers.length;
+const slideToShow = 4;
+const slideWidth = teamMembers[0].offsetWidth;
 
-    function autoSlide() {
-        currentIndex++;
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0; // Reset index for continuous effect
-            // Optional: Uncomment this line if you want a short delay at the loop point
-            // setTimeout(() => slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`, 500);
-        }
-        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+// Duplicate the first few slides
+for (let i = 0; i < slideToShow; i++) {
+    let clone = teamMembers[i].cloneNode(true);
+    slider.appendChild(clone);
+}
+
+function autoSlide() {
+    currentIndex++;
+    slider.style.transition = "transform 0.5s ease"; // Smooth transition
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    if (currentIndex === totalSlides) {
+        setTimeout(() => {
+            // Turn off transition and reset to start of real slides
+            slider.style.transition = "none";
+            currentIndex = 0;
+            slider.style.transform = `translateX(0)`;
+        }, 500); // Match the transition time
     }
+}
 
-    window.onload = () => {
-        slideWidth = teamMembers[0].offsetWidth; // Get slide width after DOM content loaded
-        setInterval(autoSlide, 3000); // Adjust the interval as needed
-    };
+// Call autoSlide every 3 seconds or adjust as needed
+setInterval(autoSlide, 2000);
 
     </script>
 </body>
