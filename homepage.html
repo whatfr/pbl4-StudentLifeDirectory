@@ -44,9 +44,9 @@
 
         /* Navigation Bar */
         .navbar {
-            position: fixed;
-            top: 40px;
-            left: 70px;
+            position: relative;
+            top: 10px;
+            left: 30px;
             width: 30%;
             background-color: #ffff;
             padding: 0px;
@@ -498,8 +498,8 @@
         <li>
             <a href="#" id="discounts-btn">Discounts</a>
             <ul class="dropdown" id="discounts-dropdown">
-                <li><a href="food&Beverages_page.html">Food Discounts</a></li>
-                <li><a href="entertainment_page.html">Entertainment Discounts</a></li>
+                <li><a href="#">Food Discounts</a></li>
+                <li><a href="#">Entertainment Discounts</a></li>
             </ul>
         </li>
         <li><a href="about_page.html">About</a></li>
@@ -520,7 +520,7 @@
                 <source src="/img/home.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-              <p>“Enjoyed the student discounts at SLD Website!” <span><button>ABOUT US</button></span></p>
+              <p>“Enjoyed the student discounts at SLD Website!” <span><a href="about_page.html"><button>ABOUT US</button></a></span></p>
               
 
               <div class="icon-bar">
@@ -540,11 +540,18 @@
                 <a href="#"><button class="cta-button">Get Discount</button></a>
             </div>
 
-            <!-- Signup/Login Section -->
-            <div class="card login">
+            <!-- Signup/Login Section (Shown when user is NOT logged in) -->
+            <div class="card login navBeforeLogin">
                 <h2>Sign Up/Log In</h2>
                 <a href="signup_page.html"><button class="signup-button">Sign Up</button></a>
                 <a href="login_page.html"><button class="login-button">Log In</button></a>
+            </div>
+
+            <!-- Logout Section (Shown when user IS logged in) -->
+            <div class="card logout navAfterLogin" style="display: none;">
+                <h2>Welcome Back!</h2>
+                <p>You're logged in. Click below to logout.</p>
+                <button class="logout-button" onclick="logout()">Log Out</button>
             </div>
 
          <!-- Feedback Section -->
@@ -554,25 +561,25 @@
         <div class="review">
 
             <img src="/img/img_avatar4.gif" alt="Avatar" style="width:130px">
-            <p><strong>Review 1 Title</strong></p>
-            <p>“Loved the 15% off at ABC Store!”</p>
-            <p>— Reviewer 1, Date</p>
+            <p><strong>Perfect for Discovering Local Discounts!</strong></p>
+            <p>“Loved the 15% off at ABC Store! This app made it so easy to find student discounts, and I’m always discovering new places to try around campus.”</p>
+            <p>— Alex R., October 15, 2024</p>
             <div class="stars">★★★★★</div>
         </div>
         <!-- Review 2 -->
         <div class="review">
             <img src="/img/img_avatar2.gif" alt="Avatar" style="width:130px">
-            <p><strong>Review 2 Title</strong></p>
-            <p>“Great experience with XYZ services!”</p>
-            <p>— Reviewer 2, Date</p>
+            <p><strong>User-Friendly and Easy to Navigate</strong></p>
+        <p>“I found the platform intuitive, even for a new user. The map feature is a great touch—super helpful for seeing nearby businesses and offers.”</p>
+        <p>— Sarah L., September 21, 2024</p>
             <div class="stars">★★★★☆</div>
         </div>
         <!-- Review 3 -->
         <div class="review">
             <img src="/img/img_avatar3.gif" alt="Avatar" style="width:130px">
-            <p><strong>Review 3 Title</strong></p>
-            <p>“Enjoyed the student discount at DEF Shop!”</p>
-            <p>— Reviewer 3, Date</p>
+            <p><strong>Discounts That Make a Difference</strong></p>
+        <p>“Being on a tight budget, this directory was a lifesaver! I discovered local stores with great deals, and I’m saving so much each month.”</p>
+        <p>— Yuki M., November 3, 2024</p>
             <div class="stars">★★☆☆</div>
         </div>
     </div>
@@ -585,8 +592,8 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <a href="homepage.html">Home</a>
-            <a href="food&Beverages_page.html">Food Discounts</a>
-            <a href="entertainment_page.html">Entertainment Discounts</a>
+            <a href="#">Food Discounts</a>
+            <a href="#">Entertainment Discounts</a>
           
             <a href="about_page.html">About Us</a>
         </div>
@@ -625,17 +632,27 @@
         // Mock authentication status - Replace with real login check
         const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
         window.onload = function() {
-            const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
-            const afterLoginElements = document.querySelectorAll(".navAfterLogin");
+        const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
+        const afterLoginElements = document.querySelectorAll(".navAfterLogin");
 
-            if (isLoggedIn) {
-                beforeLoginElements.forEach(el => el.style.display = "none");
-                afterLoginElements.forEach(el => el.style.display = "block");
-            } else {
-                beforeLoginElements.forEach(el => el.style.display = "block");
-                afterLoginElements.forEach(el => el.style.display = "none");
-            }
-        };
+        if (isLoggedIn) {
+            beforeLoginElements.forEach(el => el.style.display = "none");
+            afterLoginElements.forEach(el => el.style.display = "block");
+        } else {
+            beforeLoginElements.forEach(el => el.style.display = "block");
+            afterLoginElements.forEach(el => el.style.display = "none");
+        }
+    };
+
+    // Example logout function to update login status and reload page
+    function logout() {
+        // Set isLoggedIn to false or remove login token/session data as needed
+        // Clear user data from local storage
+        localStorage.removeItem('user');
+        localStorage.setItem("isLoggedIn", "false");
+        // Redirect to home page
+        window.location.href = 'homepage.html';   
+    }
 
                 const currentUser = localStorage.getItem("currentUser");
 
