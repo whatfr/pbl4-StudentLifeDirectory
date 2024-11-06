@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Home Page</title>
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+       .navbar {
+           position: fixed;
+           top: 40px;
+           left: 20px;
+           width: 32%;
+           background-color: #ffff;
+           padding: 0px;
+           padding-left: 20px;
+           color: white;
+           z-index: 100;
+           border-radius: 10px;
+           border-color: #8e44ad;
+           border-style: solid;
+           border-width: 2px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           box-shadow: 2px 2px 2px #aaaaaa;
+      
+       }
+
+
+       .nav-links {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           display: flex;
+           align-items: center;
+           gap: 15px; /* Adjust space between menu items */
+          
+       }
+
+
+       .nav-links li {
+           position: relative; /* For dropdown positioning */
+         
+       }
+
+
+       .nav-links a {
+           text-decoration: none;
+           color: #000;
+          
+           display: block;
+           padding: 10px;
+           border-radius: 5px;
+           transition: background 0.3s;
+          
+          
+       }
+
+
+       .nav-links a:hover {
+           background-color: #8e44ad;
+           color: #fff;
+       }
+       .nav-title{
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* White text for contrast against dark background */
+            letter-spacing: 1px; /* Adds some spacing between letters */
+            font-family: 'Poppins', sans-serif; /* Clean, modern font */
+            text-transform: uppercase; /* Converts title to uppercase */
+            text-align: center;
+            margin: 0; /* Ensures the title is centered without extra spacing */
+        }
+
+
+       .navbar-title:hover {
+            color: #FFD700; /* Gold color on hover */
+            transition: color 0.3s ease-in-out; /* Smooth color transition */
+        }
+
+
+
+
+       /* Dropdown Menu */
+       .dropdown {
+           display: none;
+           position: absolute;
+           background-color: #44318D;
+           border-radius: 8px;
+           top: 40px;
+           left: 0;
+           min-width: 160px;
+           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+           z-index: 200;
+       }
+
+
+       .dropdown li a {
+           padding: 10px 20px;
+           display: block;
+           color: white;
+       }
+
+
+       .dropdown li a:hover {
+           background-color: #8e44ad;
+       }
+
+
+       /* Hamburger Menu */
+       .hamburger {
+           display: flex;
+           flex-direction: column;
+           cursor: pointer;
+       }
+
+
+       .bar {
+           height: 2px;
+           width: 20px;
+           background-color: #000;
+           margin: 2px 0;
+           transition: 0.4s;
+       }
+
+
+       .hamburger:hover .bar {
+           background-color: #8e44ad;
+       }
+
+
+/* Overlay Styles */
+        .overlay {
+           height: 100%;
+           width: 0;
+           position: fixed;
+           z-index: 1;
+           top: 0;
+           left: 0;
+           background-color: rgba(0,0,0, 0.9);
+           overflow-x: hidden;
+           transition: 0.5s;
+           padding-top: 60px;
+       }
+
+
+       .overlay-content {
+           position: relative;
+           text-align: center;
+           margin-top: 200px;
+       }
+
+
+       .overlay a {
+           padding: 8px;
+           text-decoration: none;
+           font-size: 36px;
+           color: #818181;
+           display: block;
+           transition: 0.3s;
+       }
+
+
+       .overlay a:hover {
+           color: #f1f1f1;
+       }
+
+
+       .overlay .closebtn {
+           position: absolute;
+           top: 20px;
+           right: 45px;
+           font-size: 60px;
+       }
+
+
+      
+
+
+
+/* Logo container styling */
+.logo-container {
+     display: flex;
+     align-items: center;
+     text-transform: uppercase;
+     font-weight: bold;
+     font-size: 20px;
+     color: #333;
+   }
+
+
+   /* Styling individual letters */
+   .logo-container .logo-s,
+   .logo-container .logo-l,
+   .logo-container .logo-d {
+     display: inline-block;
+     padding: 5px;
+     position: relative;
+   }
+
+
+   /* Adding unique styles to each letter */
+   .logo-container .logo-s {
+     color: #ffe100; /* Blue color */
+   }
+   .logo-container .logo-l {
+     color: #8e44ad; /* Green color */
+     transform: rotate(-15deg);
+   }
+   .logo-container .logo-d {
+     color: #e74c3c; /* Red color */
+     text-decoration: underline;
+   }
+
+
+   /* Optional hover effect */
+   .logo-container:hover .logo-s {
+     color: #ffc400;
+   }
+   .logo-container:hover .logo-l {
+     color: #fff;
+     transform: rotate(0deg);
+   }
+   .logo-container:hover .logo-d {
+     color: #c0392b;
+     text-decoration: none;
+   }
+   * {
+	box-sizing: border-box;
+}
+
+
+
+body {
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+
+
+
+
+
+.card-wrapper {
+	position: relative;
+	width: 20vw;
+	min-width: 300px;
+	height: 50vh;
+	min-height: 400px;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.card-wrapper:hover .card {
+	transform: scale(1.05);
+	box-shadow: 0px 0px 30px rgba(164, 16, 91, 0.7);
+}
+
+.card-wrapper:hover .read-more {
+	transform: scale(1.05) translateX(-50%);
+}
+
+.card-wrapper:hover .read-more:hover {
+	transform: scale(1.05) translateX(-40%);
+}
+
+.card {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+	background-size: cover;
+	background-position: center;
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px rgba(16, 16, 16, 0.3);
+	overflow: hidden;
+	transform-origin: bottom center;
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.card-wrapper article.card.hovered {
+	transform: translateY(-60px) rotate(-3deg) scale(1.05);
+	box-shadow: 0px 0px 40px rgba(34, 34, 34, 0.6);
+}
+
+.card.hovered .card-content {
+	padding-bottom: 3.5rem;
+}
+
+.card.hovered p {
+	max-height: var(--max-height-expanded);
+	min-height: var(--max-height-expanded);
+	mask-size: 100% 130%;
+}
+
+.card-content {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 2rem;
+	padding-bottom: 6rem;
+	color: #eee;
+	font-weight: 400;
+	overflow: hidden;
+	min-height: 0;
+	cursor: default;
+	mix-blend-mode: normal;
+	transition: padding 0.3s ease;
+}
+
+.card-content h1 {
+	font-family: "Josefin Sans", sans-serif;
+	margin-bottom: 0.8rem;
+	font-size: 1.8rem;
+	font-weight: 800;
+}
+
+.card-content p {
+	position: relative;
+	margin: 0;
+	font-size: 0.9rem;
+	line-height: var(--line-height);
+	max-height: var(--max-height-collapsed);
+	min-height: var(--max-height-collapsed);
+	overflow: hidden;
+	transition: max-height 0.3s ease, min-height 0.3s ease, mask-size 0.3s ease,
+		padding 0.3s ease;
+	mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+	-webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+	mask-size: 100% 100%;
+	mask-repeat: no-repeat;
+}
+
+.read-more {
+	position: absolute;
+	bottom: 5vh;
+	left: 50%;
+	width: 10rem;
+	padding: 10px 20px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.3);
+	border: none;
+	border-radius: 5px;
+	color: #fee;
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	z-index: 3;
+	transform: translateX(-50%);
+	transform-origin: 0% 65%;
+	transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+        
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+<nav class="navbar">
+    <ul class="nav-links">
+        <li class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </li>
+        <li><a href="homepage.html" class="nav-title"><span class="logo-container"><span class="logo-s">S</span><span class="logo-l">L</span><span class="logo-d">D</span></span></a></li>
+         
+        <li>
+            <a href="#" id="discounts-btn">Discounts</a>
+            <ul class="dropdown" id="discounts-dropdown">
+                <li><a href="/food&bevs/food&Beverages_page.html">Food Discounts</a></li>
+                <li><a href="/entertainment/entertainment_page.html">Entertainment Discounts</a></li>
+            </ul>
+        </li>
+        <li><a href="about_page.html">About</a></li>
+         <!-- Links visible before login -->
+        <li  class="navBeforeLogin"><a href="signup_page.html">Get Started</a></li>
+          <!-- Links visible after login -->
+          <li class="navAfterLogin" style="display: none;"><a href="personal_homepage.html" id="greeting1"></a></li>
+     
+    </ul>
+ </nav>
+ 
+ 
+     <!-- Overlay Navigation -->
+       <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="homepage.html">Home</a>
+            <a href="food&bevs/food&Beverages_page.html">Food Discounts</a>
+            <a href="/entertainment/entertainment_page.html">Entertainment Discounts</a>
+         
+            <a href="about_page.html">About Us</a>
+        </div>
+    </div>
+ 
+    <div class="card-wrapper">
+		<article class="card" data-bkg="https://plus.unsplash.com/premium_photo-1699983842320-54e65a8b7e70?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+			<div class="card-content">
+				<h1>Food Discounts</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</p>
+			</div>
+		</article>
+		<a href="/food&bevs/food&Beverages_page.html" class="read-more">Go to Discounts</a>
+	</div>
+	<div class="card-wrapper">
+		<article class="card" data-bkg="https://plus.unsplash.com/premium_photo-1683121447942-a62eb0aef48e?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-primarycolor="#145258">
+			<div class="card-content">
+				<h1>Entertainment Discounts</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+				</p>
+			</div>
+		</article>
+		<a href="/entertainment/entertainment_page.html" class="read-more">Go to Discounts</a>
+	</div>
+
+<!-- JavaScript Section -->
+<script>
+
+
+// Mock authentication status - Replace with real login check
+const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+      window.onload = function() {
+    
+};
+
+
+        const beforeLoginElements = document.querySelectorAll(".navBeforeLogin");
+        const afterLoginElements = document.querySelectorAll(".navAfterLogin");
+
+        if (isLoggedIn) {
+            beforeLoginElements.forEach(el => el.style.display = "none");
+            afterLoginElements.forEach(el => el.style.display = "block");
+        } else {
+            beforeLoginElements.forEach(el => el.style.display = "block");
+            afterLoginElements.forEach(el => el.style.display = "none");
+        }
+
+       
+
+
+      
+
+      
+
+    function logout() {
+        // Clear user data from local storage
+        localStorage.removeItem('user');
+        localStorage.setItem("isLoggedIn", "false");
+        // Redirect to home page
+        window.location.href = 'homepage.html';
+    }
+
+    function toggleMenu() {
+            const overlay = document.getElementById("myNav");
+            overlay.style.width = overlay.style.width === "100%" ? "0" : "100%"; // Toggle overlay width
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0"; // Close overlay
+        }
+
+        document.getElementById('discounts-btn').addEventListener('click', function() {
+            var dropdown = document.getElementById('discounts-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+	const cards = document.querySelectorAll(".card");
+	const defaultBkg =
+		"https://images.unsplash.com/photo-1729014697075-0eede8ab6eb6?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+	const defaultPrimaryColor = "rgb(164, 16, 91)";
+
+	cards.forEach((card) => {
+		const backgroundUrl = card.getAttribute("data-bkg") || defaultBkg;
+		const primaryColor =
+			card.getAttribute("data-primarycolor") || defaultPrimaryColor;
+		const readMoreButton = card.nextElementSibling;
+		const readMoreOriginalBkg = readMoreButton.style.backgroundColor;
+
+		card.style.backgroundImage = `linear-gradient(to bottom, rgba(75, 75, 75, 0.1), rgba(0, 0, 0, 0.5)), url('${backgroundUrl}')`;
+
+		readMoreButton.addEventListener("mouseenter", () => {
+			readMoreButton.style.backgroundColor = primaryColor;
+		});
+		readMoreButton.addEventListener("mouseleave", () => {
+			readMoreButton.style.backgroundColor = readMoreOriginalBkg;
+		});
+	});
+
+	
+});
+
+
+
+
+
+</script>
+</body>
+</html>
